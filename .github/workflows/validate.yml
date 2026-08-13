@@ -1,0 +1,14 @@
+name: Validate RIGOR
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  repository-contract:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Validate repository contract
+        run: python scripts/validate_repository.py .
