@@ -21,7 +21,7 @@ REQUIRED = (
     "docs/synchronization.md", "scripts/validate_repository.py",
 )
 
-LINK = re.compile(r"(?<!!)[[^]]*](([^)]+))")
+LINK = re.compile(r"(?<!!)\[[^]]*\]\(([^)]+)\)")
 failures: list[str] = []
 
 def require(condition: bool, message: str) -> None:
@@ -39,7 +39,7 @@ def main() -> int:
     for relative in REQUIRED:
         require((root / relative).is_file(), f"missing required file: {relative}")
 
-    moda = (root / "moda.yaml")
+    moda = root / "moda.yaml"
     if moda.is_file():
         text = moda.read_text(encoding="utf-8")
         for token in ('compatibility: "^1.0.0"', 'kind: "methodology"', 'version: "0.1.0"', 'claim_stage: "mapped"'):
