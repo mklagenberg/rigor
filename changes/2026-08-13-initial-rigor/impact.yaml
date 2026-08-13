@@ -1,0 +1,43 @@
+change:
+  id: "2026-08-13-initial-rigor"
+  title: "Establish RIGOR v0.1.0"
+  class: "normative"
+  semver: "minor"
+  status: "implemented"
+  structural: true
+  summary: "Initial native MODA methodology repository and RIGOR core contract."
+
+git:
+  base_ref: "empty repository"
+  target_branch: "main"
+
+triggers:
+  normative_rule: true
+  public_path: true
+  package_contract: false
+  security_behavior: true
+  release: false
+
+affected:
+  specification: {status: "updated", paths: ["SPEC.md", "CONSTITUTION.md"], rationale: "Initial normative contract."}
+  decisions: {status: "updated", paths: ["decisions/"], rationale: "Initial durable structural decisions."}
+  documentation: {status: "updated", paths: ["docs/", "GETTING-STARTED.md", "BEST-PRACTICES.md", "DISCLAIMER.md"], rationale: "Initial operational guidance."}
+  entrypoints: {status: "updated", paths: ["README.md", "AGENTS.md", "CLAUDE.md"], rationale: "Initial repository interfaces."}
+  manifests: {status: "updated", paths: ["moda.yaml", "conformance/moda.yaml"], rationale: "Initial machine declarations."}
+  skill: {status: "not-applicable", paths: [], rationale: "No distributed RIGOR skill yet."}
+  schemas: {status: "not-applicable", paths: [], rationale: "Machine schemas are roadmap work."}
+  validators: {status: "updated", paths: ["scripts/validate_repository.py"], rationale: "Initial deterministic structure check."}
+  tests: {status: "not-applicable", paths: [], rationale: "Validator has no separate test harness in the initial pre-release."}
+  ci: {status: "updated", paths: [".github/workflows/validate.yml"], rationale: "Run the repository validator remotely."}
+  templates: {status: "not-applicable", paths: [], rationale: "Artifact templates are documented, not packaged."}
+  examples: {status: "not-applicable", paths: [], rationale: "Worked examples are roadmap work."}
+  changelog: {status: "updated", paths: ["CHANGELOG.md"], rationale: "Initial version entry."}
+  upgrade: {status: "updated", paths: ["UPGRADE.md"], rationale: "Initial upgrade position."}
+  migrations: {status: "updated", paths: ["MIGRATIONS.md"], rationale: "Initial migration position."}
+  roadmap: {status: "updated", paths: ["ROADMAP.md"], rationale: "Pending capabilities are explicit."}
+  conformance: {status: "updated", paths: ["conformance/", "audits/"], rationale: "Initial mapping and self-audit evidence."}
+
+validation:
+  commands:
+    - "python scripts/validate_repository.py ."
+  evidence: []
