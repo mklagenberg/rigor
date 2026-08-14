@@ -1,0 +1,64 @@
+# RIGOR research bundle — schema_version 0.1.0
+schema_version: "0.1.0"
+brief:
+  question: ""
+  outcome: ""
+  scope: ""
+  exclusions: []
+  level: 3
+  level_rationale: ""
+  evidence_regimes: []
+  permissions: []
+  decision_owner: ""
+plan:
+  plan_id: "PLAN-001"
+  provider_reconciliation: []
+  workstreams:
+    - workstream_id: "WS-001"
+      question: ""
+      evidence_target: ""
+      role: "source-discovery"
+      stop_condition: ""
+  stop_conditions: []
+sources:
+  - source_id: "SR-001"
+    author: ""
+    title: ""
+    source_type: "report"
+    venue: ""
+    publisher: ""
+    published_at: "YYYY-MM-DD"
+    accessed_at: "YYYY-MM-DD"
+    url: ""
+    locator: ""
+    status: "discovered"
+    independence_group: ""
+    limitations: []
+    incentives: []
+claims:
+  - claim_id: "CL-001"
+    claim_type: "source_claim"
+    statement: ""
+    citations: ["SR-001"]
+    support_status: "insufficient"
+    assumptions: []
+    open_questions: []
+handoffs:
+  - handoff_id: "HO-001"
+    role: "source-discovery"
+    work_performed: ""
+    claim_ids: ["CL-001"]
+    source_ids: ["SR-001"]
+    gaps: []
+    recommended_next_action: "verify"
+dossier:
+  dossier_id: "DOS-001"
+  title: ""
+  plan_id: "PLAN-001"
+  claim_ids: ["CL-001"]
+  conclusion: ""
+  confidence_rationale: ""
+  limitations: []
+  revalidation:
+    triggers: []
+    owner: ""
