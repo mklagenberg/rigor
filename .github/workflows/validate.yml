@@ -1,10 +1,8 @@
 name: Validate RIGOR
-
 on:
   push:
     branches: [main]
   pull_request:
-
 jobs:
   repository-contract:
     runs-on: ubuntu-latest
@@ -12,6 +10,10 @@ jobs:
       - uses: actions/checkout@v4
       - name: Validate repository contract
         run: python scripts/validate_repository.py .
+      - name: Validate executable artifacts
+        run: |
+          python scripts/validate_artifacts.py tests/fixtures/valid-research-bundle.json
+          ! python scripts/validate_artifacts.py tests/fixtures/invalid-unknown-citation.json
       - name: Validate MODA contract
         run: |
           git clone --filter=blob:none https://github.com/mklagenberg/moda.git /tmp/moda
