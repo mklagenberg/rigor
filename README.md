@@ -25,6 +25,10 @@ It starts at investigation Levels 3–5; it is deliberately not the default for 
 
 RIGOR is in active development at `0.1.0`. It has a mapped, partial self-assessment against MODA; it does not claim external certification.
 
+## License and contributions
+
+RIGOR is available under the [Apache License 2.0](LICENSE). Contributions follow the [contribution policy](CONTRIBUTING.md) and require Developer Certificate of Origin 1.1 sign-off.
+
 <!-- moda:disclosure:start -->
 This repository is structured and audited with [MODA](https://github.com/mklagenberg/moda).
 
