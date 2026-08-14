@@ -1,0 +1,48 @@
+audit:
+  id: "rigor-moda-batch-4-close-2026-08-14"
+  date: "2026-08-14"
+  mode: "self-audit"
+  supersedes: "audits/moda/2026-08-13-initial.yaml"
+
+auditor:
+  name: "Codex using MODA skill"
+  version: "1.0.0"
+  authority: "Batch 4 close self-audit; not external certification."
+
+subject:
+  id: "rigor"
+  kind: "methodology"
+  version: "0.1.0"
+  repository: "https://github.com/mklagenberg/rigor"
+  commit: "8a9a6dae6ef0900cf8d3a06f6f0bee78c4d3a6d7"
+
+framework:
+  id: "moda"
+  version: "1.0.0"
+  repository: "https://github.com/mklagenberg/moda"
+  commit: "81171ed22163f73f250e32534f9edc3a4f8d51e1"
+
+result:
+  profile: "methodology"
+  claim_stage: "verified"
+  conformance: "partial"
+  critical_findings: 0
+  major_findings: 0
+  minor_findings: 1
+  observations: 1
+
+findings:
+  - id: "RIGOR-MODA-004"
+    severity: "minor"
+    control: "packaging_and_governance"
+    evidence: ["moda.yaml", "ROADMAP.md", "skills/rigor-core/SKILL.md", "adapters/"]
+    finding: "Portable core and host adapters now exist, but license and contribution policy remain unresolved and no pre-release distribution has been approved."
+    recommendation: "Resolve license and contribution policy, verify package provenance, and complete the Batch 5 release gates before distribution."
+  - id: "RIGOR-MODA-005"
+    severity: "observation"
+    control: "evaluation_and_safety"
+    evidence: ["evaluations/summary.md", "schemas/research-bundle.schema.json"]
+    finding: "Four adversarial runs passed, but the corpus does not yet emit complete machine-readable bundles or demonstrate cross-provider artifact compatibility."
+    recommendation: "Generate validated bundles and compare artifact compatibility across ChatGPT, Claude, and Gemini before pre-release."
+
+exceptions: []
