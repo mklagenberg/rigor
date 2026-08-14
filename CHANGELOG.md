@@ -14,6 +14,7 @@ All notable changes are documented here.
 - Four adversarial evaluation cases and completed runs covering scientific, quantitative, historical, and genealogical evidence regimes.
 - Aggregate Batch 4 evaluation summary and release remediation.
 - Executable JSON bundles for all four evaluation runs plus deterministic corpus validation and explicit static adapter coverage.
+- Apache-2.0 license, DCO-based contribution policy, and deterministic governance checks.
 
 ### Changed
 
@@ -22,9 +23,7 @@ All notable changes are documented here.
 
 ### Known limitations
 
-- Evaluation runs do not yet emit complete machine-readable research bundles.
 - Provider runtime execution and cross-provider artifact comparison have not yet been demonstrated.
-- Licensing and contribution policy remain undecided.
 
 ## [0.1.0] - 2026-08-13
 
