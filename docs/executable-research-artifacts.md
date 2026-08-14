@@ -14,3 +14,9 @@ The bundle validates traceability and required shape. It does not certify a sour
 ## Minimal portability
 
 The format is data-only and has no vendor/model field. A host adapter may add fields but MUST preserve this core and MAY NOT erase required relationships. Provider-plan reconciliation is recorded under `plan.provider_reconciliation`.
+
+## Evaluation corpus
+
+The representative bundles live under [`evaluations/bundles/`](../evaluations/bundles/). Run `python scripts/validate_evaluation_corpus.py` to validate all four against the portable core and require a static adapter entry for ChatGPT, Claude, and Gemini.
+
+Static coverage proves only that each adapter is mapped to the same core contract. A provider is **not executed** until a host-specific run produces an inspectable bundle and reconciliation record.
