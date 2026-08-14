@@ -1,0 +1,15 @@
+change:
+  id: "2026-08-14-agent-protocol-and-adapters"
+  class: "operational"
+  status: "implemented"
+  owner: "Mauricio M. Klagenberg"
+  base_ref: "8f0c517e62919f1f6619c69b2033ddf3b6b19624"
+  semver_impact: "minor"
+  structural_change: true
+scope:
+  portable_core: ["skills/rigor-core/", "protocols/"]
+  adapters: ["adapters/chatgpt.md", "adapters/claude.md", "adapters/gemini.md"]
+risks: ["Host-specific prompts can silently weaken RIGOR controls."]
+mitigations: ["Core owns all invariants; adapters only map capabilities."]
+validation:
+  required: ["python scripts/validate_repository.py .", "python scripts/validate_artifacts.py tests/fixtures/valid-research-bundle.json"]
