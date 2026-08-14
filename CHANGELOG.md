@@ -2,7 +2,19 @@
 
 All notable changes are documented here.
 
-## [0.1.0] — 2026-08-13
+## [Unreleased]
+
+### Added
+
+- Canonical dossier and derivation contract.
+- Citation-to-complete-reference, source-intelligence, evidence-regime, and provider-plan reconciliation contracts.
+- Composable agent-role architecture and batch implementation plan.
+
+### Changed
+
+- MODA component lifecycle metadata and canonical MODA validation in CI.
+
+## [0.1.0] - 2026-08-13
 
 ### Added
 

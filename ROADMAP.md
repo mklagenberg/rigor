@@ -1,17 +1,14 @@
 # Roadmap
 
-## Next: operational prototype
+RIGOR is developed and approved in execution batches. See [implementation plan](docs/implementation-plan.md).
 
-- Define a machine-readable investigation brief and evidence-ledger schema.
-- Create representative Level 3, 4, and 5 worked examples.
-- Build a portable RIGOR skill core and host adapters for ChatGPT, Claude, and Gemini environments.
-- Add deterministic validation for research artifact shapes and claim/source links.
-- Define evaluation corpus, scoring rubric, and red-team cases.
+## Current: Batch 2 — executable artifacts
 
-## Before first stable release
+- Define machine-readable brief, plan, source/reference register, evidence ledger, handoff, and dossier schemas.
+- Add valid and invalid fixtures plus cross-link validation.
 
-- Decide license and contribution policy.
-- Validate examples with independent human review.
-- Audit the frozen content commit against MODA.
-- Set repository protection and required remote checks.
-- Obtain explicit human approval for the release tag.
+## Then
+
+- **Batch 3:** portable role protocol and ChatGPT, Claude, and Gemini adapters.
+- **Batch 4:** representative and adversarial evaluation corpus, including scientific, quantitative, historical, and genealogical cases.
+- **Batch 5:** licensing, contribution policy, release gates, independent review, and pre-release package.

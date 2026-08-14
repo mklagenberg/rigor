@@ -1,0 +1,24 @@
+change:
+  id: "2026-08-14-dossier-and-agent-architecture"
+  class: "normative"
+  status: "implemented"
+  owner: "Mauricio M. Klagenberg"
+  base_ref: "25fcb3d142de3aedd777eb5172023aba6abfd651"
+  semver_impact: "minor"
+  structural_change: true
+scope:
+  normative: ["SPEC.md", "CONSTITUTION.md"]
+  operational: ["docs/dossier-and-derivations.md", "docs/citation-and-reference-contract.md", "docs/plan-reconciliation.md", "docs/agent-architecture.md", "docs/evidence-regimes.md", "docs/source-intelligence.md"]
+  automation: ["scripts/validate_repository.py", ".github/workflows/validate.yml"]
+risks:
+  - "Derived outputs may omit material provenance."
+  - "Provider-native plans may silently weaken required work."
+  - "Agent roles may be used outside their activation conditions."
+mitigations:
+  - "Canonical dossier and citation-reference requirements."
+  - "Mandatory RIGOR-to-provider plan reconciliation record."
+  - "Composable role activation and explicit handoff contract."
+validation:
+  required:
+    - "python scripts/validate_repository.py ."
+    - "python MODA scripts/validate_moda.py . against verified_commit"

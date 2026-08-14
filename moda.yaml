@@ -45,12 +45,23 @@ components:
   - id: "activation-model"
     kind: "framework"
     source: "docs/activation-and-proportionality.md"
+    lifecycle: "embedded"
   - id: "evidence-model"
     kind: "model"
     source: "docs/evidence-model.md"
+    lifecycle: "embedded"
   - id: "rigor-process"
     kind: "process"
     source: "docs/research-process.md"
+    lifecycle: "embedded"
+  - id: "dossier-contract"
+    kind: "protocol"
+    source: "docs/dossier-and-derivations.md"
+    lifecycle: "embedded"
+  - id: "agent-orchestration"
+    kind: "framework"
+    source: "docs/agent-architecture.md"
+    lifecycle: "embedded"
 
 packages:
   specification:
@@ -69,4 +80,4 @@ conformance:
 synchronization:
   policy: "docs/synchronization.md"
   state: "current"
-  reason: "MODA v1.0.0 was checked against immutable commit 81171ed22163f73f250e32534f9edc3a4f8d51e1 on 2026-08-13."
+  reason: "MODA v1.0.0 was checked against immutable commit 81171ed22163f73f250e32534f9edc3a4f8d51e1 on 2026-08-14."

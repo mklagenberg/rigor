@@ -21,7 +21,7 @@ controls:
     gaps: []
   activation_and_proportionality:
     status: "satisfied"
-    evidence: ["SPEC.md#5-activation-and-proportionality", "docs/activation-and-proportionality.md"]
+    evidence: ["SPEC.md#5-activation-and-proportionality", "docs/activation-and-proportionality.md", "docs/evidence-regimes.md"]
     gaps: []
   human_reference_practice:
     status: "satisfied"
@@ -29,23 +29,23 @@ controls:
     gaps: []
   inputs_outputs_invariants:
     status: "satisfied"
-    evidence: ["SPEC.md#4-inputs-and-outputs", "CONSTITUTION.md", "docs/research-artifacts.md"]
+    evidence: ["SPEC.md#4-inputs-and-outputs", "CONSTITUTION.md", "docs/dossier-and-derivations.md", "docs/citation-and-reference-contract.md"]
     gaps: []
   decomposition_and_control_flow:
     status: "satisfied"
-    evidence: ["SPEC.md#6-process", "docs/research-process.md"]
+    evidence: ["SPEC.md#6-process", "docs/research-process.md", "docs/plan-reconciliation.md"]
     gaps: []
   distribution_of_agency:
     status: "satisfied"
-    evidence: ["SPEC.md#8-agency-and-orchestration", "docs/agency-and-orchestration.md"]
+    evidence: ["SPEC.md#8-agency-and-orchestration", "docs/agent-architecture.md"]
     gaps: []
   orchestration:
     status: "satisfied"
-    evidence: ["docs/agency-and-orchestration.md"]
+    evidence: ["docs/agency-and-orchestration.md", "docs/agent-architecture.md"]
     gaps: []
   contracts_and_state:
     status: "satisfied"
-    evidence: ["docs/research-artifacts.md", "docs/evidence-model.md"]
+    evidence: ["docs/research-artifacts.md", "docs/evidence-model.md", "docs/citation-and-reference-contract.md"]
     gaps: []
   evaluation_and_safety:
     status: "partial"
@@ -53,11 +53,11 @@ controls:
     gaps: ["No executed representative or adversarial case corpus yet."]
   packaging_and_governance:
     status: "partial"
-    evidence: ["moda.yaml", "AGENTS.md", "CHANGELOG.md", "ROADMAP.md", "changes/2026-08-13-initial-rigor/"]
+    evidence: ["moda.yaml", "AGENTS.md", "CHANGELOG.md", "ROADMAP.md", "changes/2026-08-14-dossier-and-agent-architecture/"]
     gaps: ["License and contribution policy are unresolved; no distributed skill or adapter exists."]
   validation_and_repair:
     status: "satisfied"
-    evidence: ["scripts/validate_repository.py", "docs/validation-and-repair.md", ".github/workflows/validate.yml"]
+    evidence: ["scripts/validate_repository.py", ".github/workflows/validate.yml"]
     gaps: []
 
 exceptions: []

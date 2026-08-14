@@ -12,3 +12,8 @@ jobs:
       - uses: actions/checkout@v4
       - name: Validate repository contract
         run: python scripts/validate_repository.py .
+      - name: Validate MODA contract
+        run: |
+          git clone --filter=blob:none https://github.com/mklagenberg/moda.git /tmp/moda
+          git -C /tmp/moda checkout 81171ed22163f73f250e32534f9edc3a4f8d51e1
+          python /tmp/moda/scripts/validate_moda.py .
