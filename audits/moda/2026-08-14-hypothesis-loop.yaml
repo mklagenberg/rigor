@@ -14,7 +14,7 @@ subject:
   kind: "methodology"
   version: "0.2.0"
   repository: "https://github.com/mklagenberg/rigor"
-  commit: "ca6ad95a20821128e93fd3ffed153de323f912d1"
+  commit: "93b8c5c934e89b697045911a988206d51ac6dbc0"
 
 framework:
   id: "moda"
