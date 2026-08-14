@@ -1,0 +1,14 @@
+change:
+  id: "2026-08-14-evaluation-corpus"
+  class: "operational"
+  status: "implemented"
+  owner: "Mauricio M. Klagenberg"
+  base_ref: "fcceed5ef6a35bf52af78f1a638d161468d549e2"
+  semver_impact: "minor"
+  structural_change: true
+scope:
+  evaluation: ["evaluations/rubric.md", "evaluations/cases/"]
+risks: ["Evaluation may accidentally encode a preferred substantive conclusion."]
+mitigations: ["Score traceability, falsification, and calibration rather than conclusion direction."]
+validation:
+  required: ["python scripts/validate_repository.py ."]
