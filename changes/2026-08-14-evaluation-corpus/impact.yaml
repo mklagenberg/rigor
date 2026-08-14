@@ -7,8 +7,24 @@ change:
   semver_impact: "minor"
   structural_change: true
 scope:
-  evaluation: ["evaluations/rubric.md", "evaluations/cases/"]
-risks: ["Evaluation may accidentally encode a preferred substantive conclusion."]
-mitigations: ["Score traceability, falsification, and calibration rather than conclusion direction."]
+  evaluation:
+    - "evaluations/rubric.md"
+    - "evaluations/cases/"
+    - "evaluations/runs/"
+    - "evaluations/summary.md"
+risks:
+  - "Evaluation may accidentally encode a preferred substantive conclusion."
+  - "Narrative runs may appear to prove machine-readable provider portability."
+mitigations:
+  - "Score traceability, falsification, and calibration rather than conclusion direction."
+  - "Carry complete research bundles and cross-provider execution into Batch 5 release gates."
 validation:
-  required: ["python scripts/validate_repository.py ."]
+  required:
+    - "python scripts/validate_repository.py ."
+    - "python scripts/validate_artifacts.py tests/fixtures/valid-research-bundle.json"
+  evidence:
+    cases_run: 4
+    passes: 4
+    score_range: "13-15/16"
+    zero_dimensions: 0
+    summary: "evaluations/summary.md"
