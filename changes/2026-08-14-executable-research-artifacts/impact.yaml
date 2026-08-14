@@ -1,13 +1,13 @@
 change:
   id: "2026-08-14-executable-research-artifacts"
   class: "operational"
-  status: "in-progress"
+  status: "implemented"
   owner: "Mauricio M. Klagenberg"
   base_ref: "1eb5da759c810b837f66cc3ced00ca48bcc7e5e8"
   semver_impact: "minor"
   structural_change: true
 scope:
-  contracts: ["schemas/", "templates/", "docs/research-artifacts.md"]
+  contracts: ["schemas/", "templates/", "docs/executable-research-artifacts.md"]
   automation: ["scripts/validate_artifacts.py", "tests/fixtures/"]
 risks:
   - "Schema could overfit a single vendor."
@@ -18,5 +18,5 @@ mitigations:
 validation:
   required:
     - "python scripts/validate_repository.py ."
-    - "python scripts/validate_artifacts.py tests/fixtures/valid"
-    - "python scripts/validate_artifacts.py tests/fixtures/invalid-*"
+    - "python scripts/validate_artifacts.py tests/fixtures/valid-research-bundle.json"
+    - "! python scripts/validate_artifacts.py tests/fixtures/invalid-unknown-citation.json"
