@@ -9,10 +9,21 @@ All notable changes are documented here.
 - Canonical dossier and derivation contract.
 - Citation-to-complete-reference, source-intelligence, evidence-regime, and provider-plan reconciliation contracts.
 - Composable agent-role architecture and batch implementation plan.
+- Machine-readable research-bundle schema, template, fixtures, and cross-link validator.
+- Portable RIGOR core with thin adapters for ChatGPT, Claude, and Gemini.
+- Four adversarial evaluation cases and completed runs covering scientific, quantitative, historical, and genealogical evidence regimes.
+- Aggregate Batch 4 evaluation summary and release remediation.
 
 ### Changed
 
 - MODA component lifecycle metadata and canonical MODA validation in CI.
+- Roadmap advanced to Batch 5 governance and pre-release.
+
+### Known limitations
+
+- Evaluation runs do not yet emit complete machine-readable research bundles.
+- Cross-provider artifact compatibility has not yet been demonstrated.
+- Licensing and contribution policy remain undecided.
 
 ## [0.1.0] - 2026-08-13
 
