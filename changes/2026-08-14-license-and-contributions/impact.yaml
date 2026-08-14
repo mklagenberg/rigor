@@ -1,0 +1,32 @@
+change:
+  id: "2026-08-14-license-and-contributions"
+  class: "normative"
+  status: "implemented"
+  base_ref: "303b46954d43b85b39b5b154bd2cf3026d3d217c"
+  semver_impact: "minor"
+  structural_change: true
+scope:
+  updated:
+    - "LICENSE"
+    - "CONTRIBUTING.md"
+    - "moda.yaml"
+    - "README.md"
+    - "ROADMAP.md"
+    - "CHANGELOG.md"
+    - "conformance/moda.yaml"
+    - "scripts/validate_repository.py"
+    - "decisions/0006-apache-2.0-and-dco-contributions.md"
+  reviewed:
+    - "SPEC.md — research obligations are unchanged."
+    - "AGENTS.md — existing change-control and safety instructions remain sufficient."
+    - "skills/ and adapters/ — runtime behavior and compatibility are unchanged."
+  not_applicable:
+    - "Schemas, templates, evaluation dossiers, and migrations — no research artifact shape changes."
+validation:
+  required:
+    - "python scripts/validate_repository.py ."
+    - "python scripts/validate_artifacts.py tests/fixtures/valid-research-bundle.json"
+    - "python scripts/validate_evaluation_corpus.py"
+    - "python <MODA>/scripts/validate_moda.py ."
+recovery:
+  policy: "Do not rewrite or revoke a published release license; a future change requires an explicit owner decision and legal review."
