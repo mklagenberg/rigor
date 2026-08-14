@@ -74,10 +74,10 @@ installations: []
 
 conformance:
   profile: "conformance/moda.yaml"
-  latest_audit: "audits/moda/2026-08-13-initial.yaml"
+  latest_audit: "audits/moda/2026-08-14-batch-4-close.yaml"
   audit_mode: "self-audit"
 
 synchronization:
   policy: "docs/synchronization.md"
   state: "current"
-  reason: "MODA v1.0.0 was checked against immutable commit 81171ed22163f73f250e32534f9edc3a4f8d51e1 on 2026-08-14."
+  reason: "MODA v1.0.0 remains the latest release; its immutable commit 81171ed22163f73f250e32534f9edc3a4f8d51e1 and security advisory state were checked on 2026-08-14."
