@@ -1,0 +1,33 @@
+change:
+  id: "2026-08-14-pre-release-portability"
+  class: "operational"
+  status: "implemented-with-open-gates"
+  base_ref: "7519f9d0d60152baf8a4b2172abeb39c47fbcbf6"
+  semver_impact: "minor"
+  structural_change: false
+scope:
+  updated:
+    - "evaluations/bundles/"
+    - "scripts/validate_evaluation_corpus.py"
+    - "docs/executable-research-artifacts.md"
+    - "CHANGELOG.md"
+  reviewed:
+    - "schemas/research-bundle.schema.json"
+    - "templates/research-bundle.yaml"
+    - "adapters/"
+  not_applicable:
+    - "SPEC.md — no normative obligation changes."
+    - "decisions/ — no durable architectural choice."
+    - "UPGRADE.md and MIGRATIONS.md — schema is unchanged."
+risks:
+  - "Structural validation could be confused with source or provider-run validation."
+mitigations:
+  - "Validator and bundle documentation distinguish shape, static adapter coverage, and runtime execution."
+validation:
+  required:
+    - "python scripts/validate_evaluation_corpus.py"
+    - "python scripts/validate_repository.py ."
+    - "python scripts/validate_artifacts.py tests/fixtures/valid-research-bundle.json"
+open_gates:
+  - "Executed artifacts from ChatGPT, Claude, and Gemini."
+  - "License and contribution policy decision."
