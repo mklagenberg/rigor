@@ -16,6 +16,18 @@ It starts at investigation Levels 3–5; it is deliberately not the default for 
 
 ## Start here
 
+### Practical use
+
+- In ChatGPT Work, invoke `@rigor` or select the RIGOR skill.
+- In Codex, invoke `$rigor`.
+- In another compatible host, install or import [`skills/rigor`](skills/rigor/SKILL.md) and use its adapter mapping.
+
+Example: `Use $rigor to investigate whether [claim] holds. The learning or decision goal is [goal]. Scope: [scope]. Stakes if wrong: [stakes].`
+
+The skill classifies force, creates the master plan, spawns bounded roles when the host supports subagents, records any sequential fallback, validates the Research Bundle, and returns the dense dossier first.
+
+### Methodology reference
+
 1. Read [Getting started](GETTING-STARTED.md), [specification](SPEC.md), and [constitution](CONSTITUTION.md).
 2. Decide activation with [proportionality](docs/activation-and-proportionality.md).
 3. Read the [dossier contract](docs/dossier-and-derivations.md), [citation/reference contract](docs/citation-and-reference-contract.md), and [agent architecture](docs/agent-architecture.md).

@@ -1,0 +1,39 @@
+{
+  "schema_version": "0.1.0",
+  "brief": {
+    "question": "",
+    "outcome": "",
+    "scope": "",
+    "exclusions": [],
+    "level": 3,
+    "level_rationale": "",
+    "evidence_regimes": [],
+    "permissions": [],
+    "decision_owner": "",
+    "version_status": "unknown",
+    "procedural_independence": "pending"
+  },
+  "plan": {
+    "plan_id": "PLAN-001",
+    "provider_reconciliation": [],
+    "workstreams": [],
+    "stop_conditions": []
+  },
+  "sources": [],
+  "claims": [],
+  "handoffs": [],
+  "dossier": {
+    "dossier_id": "DOS-001",
+    "title": "",
+    "plan_id": "PLAN-001",
+    "claim_ids": [],
+    "conclusion": "",
+    "confidence_rationale": "",
+    "limitations": [],
+    "revalidation": {
+      "triggers": [],
+      "owner": ""
+    }
+  }
+}
+

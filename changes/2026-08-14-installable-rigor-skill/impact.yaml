@@ -1,0 +1,34 @@
+change:
+  id: "2026-08-14-installable-rigor-skill"
+  class: "operational"
+  status: "implemented"
+  base_ref: "6886a0c5412811db261c43fde794546c22117ebd"
+  semver_impact: "minor"
+  structural_change: true
+scope:
+  added:
+    - "skills/rigor/"
+    - "scripts/validate_skill.py"
+    - "decisions/0007-portable-core-and-installable-skill.md"
+  updated:
+    - "README.md"
+    - "GETTING-STARTED.md"
+    - "ROADMAP.md"
+    - "CHANGELOG.md"
+    - "moda.yaml"
+    - "conformance/moda.yaml"
+    - "scripts/validate_repository.py"
+    - ".github/workflows/validate.yml"
+  reviewed:
+    - "SPEC.md — normative research controls are unchanged."
+    - "skills/rigor-core/SKILL.md — remains the embedded portable protocol."
+    - "adapters/ — remain thin host mappings."
+validation:
+  required:
+    - "python scripts/validate_repository.py ."
+    - "python scripts/validate_skill.py skills/rigor"
+    - "python scripts/validate_artifacts.py tests/fixtures/valid-research-bundle.json"
+    - "python scripts/validate_evaluation_corpus.py"
+    - "python <MODA>/scripts/validate_moda.py ."
+recovery:
+  policy: "Remove only the installable package mapping and directory; preserve the portable core, specification, decisions, and research artifacts."

@@ -69,8 +69,24 @@ packages:
     version: "0.1.0"
     source: "SPEC.md"
     source_kind: "local"
+  rigor-core:
+    role: "portable-embedded-protocol"
+    version: "0.1.0"
+    source: "skills/rigor-core"
+    source_kind: "local"
+  rigor-skill:
+    role: "installable-orchestration-skill"
+    version: "0.1.0"
+    source: "skills/rigor"
+    source_kind: "local"
 
-installations: []
+installations:
+  - package: "rigor-skill"
+    environment: "chatgpt-work-personal-skills"
+    version: "0.1.0"
+    state: "current"
+    source: "skills/rigor"
+    update_policy: "explicit-only"
 
 conformance:
   profile: "conformance/moda.yaml"

@@ -1,5 +1,11 @@
 # Getting started with RIGOR
 
+## Fastest path: use the skill
+
+Invoke `@rigor` in ChatGPT Work or `$rigor` in Codex, followed by the question, learning/decision goal, scope, and stakes if wrong. The installable package is [`skills/rigor`](skills/rigor/SKILL.md).
+
+RIGOR will reject disproportionate Level 0–2 activation, create one master plan for Level 3–5 work, reconcile any provider-native Deep Research plan, and delegate bounded roles when subagents are available. If they are not, it uses a declared sequential fallback; this is not equivalent to independent review.
+
 ## 1. Decide whether to activate it
 
 Use [the activation guide](docs/activation-and-proportionality.md). RIGOR begins at Level 3. For Levels 0–2, answer directly or use a narrower retrieval/synthesis workflow.
@@ -40,4 +46,6 @@ A final RIGOR report contains:
 
 ## Minimum prompt
 
-> Apply RIGOR at the appropriate level to investigate: [question]. The decision or learning goal is [goal]. Scope: [scope]. Stakes if wrong: [stakes]. Include a research plan, source-discovery strategy, evidence ledger, counterargument pass, confidence assessment, and revalidation triggers. Do not treat model agreement as corroboration.
+> Use $rigor to investigate: [question]. The decision or learning goal is [goal]. Scope: [scope]. Stakes if wrong: [stakes].
+
+The skill adds the research plan, discovery strategy, evidence ledger, counterevidence pass, confidence assessment, Research Bundle, dense dossier, and revalidation triggers automatically.

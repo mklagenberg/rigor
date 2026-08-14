@@ -37,11 +37,11 @@ controls:
     gaps: []
   distribution_of_agency:
     status: "satisfied"
-    evidence: ["SPEC.md#8-agency-and-orchestration", "docs/agent-architecture.md"]
+    evidence: ["SPEC.md#8-agency-and-orchestration", "docs/agent-architecture.md", "skills/rigor/references/orchestration.md"]
     gaps: []
   orchestration:
     status: "satisfied"
-    evidence: ["docs/agency-and-orchestration.md", "docs/agent-architecture.md"]
+    evidence: ["docs/agency-and-orchestration.md", "docs/agent-architecture.md", "skills/rigor/SKILL.md", "skills/rigor/references/host-capabilities.md"]
     gaps: []
   contracts_and_state:
     status: "satisfied"
@@ -53,11 +53,11 @@ controls:
     gaps: []
   packaging_and_governance:
     status: "partial"
-    evidence: ["moda.yaml", "AGENTS.md", "LICENSE", "CONTRIBUTING.md", "CHANGELOG.md", "ROADMAP.md", "skills/rigor-core/SKILL.md", "adapters/", "changes/2026-08-14-license-and-contributions/"]
-    gaps: ["No pre-release distribution or executed cross-provider compatibility evidence exists yet."]
+    evidence: ["moda.yaml", "AGENTS.md", "LICENSE", "CONTRIBUTING.md", "CHANGELOG.md", "ROADMAP.md", "skills/rigor-core/SKILL.md", "skills/rigor/", "adapters/", "changes/2026-08-14-installable-rigor-skill/"]
+    gaps: ["The development skill is installed and structurally validated, but no tagged pre-release distribution or executed cross-provider compatibility evidence exists yet."]
   validation_and_repair:
     status: "satisfied"
-    evidence: ["scripts/validate_repository.py", ".github/workflows/validate.yml"]
+    evidence: ["scripts/validate_repository.py", "scripts/validate_skill.py", "skills/rigor/scripts/validate_bundle.py", ".github/workflows/validate.yml"]
     gaps: []
 
 exceptions: []

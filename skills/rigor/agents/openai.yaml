@@ -1,0 +1,5 @@
+interface:
+  display_name: "RIGOR"
+  short_description: "Run evidence-grounded investigations"
+  default_prompt: "Use $rigor to plan and execute this investigation as a traceable dossier."
+
