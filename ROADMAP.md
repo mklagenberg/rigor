@@ -2,13 +2,21 @@
 
 RIGOR is developed and approved in execution batches. See [implementation plan](docs/implementation-plan.md).
 
-## Current: Batch 2 — executable artifacts
+## Completed
 
-- Define machine-readable brief, plan, source/reference register, evidence ledger, handoff, and dossier schemas.
-- Add valid and invalid fixtures plus cross-link validation.
+- **Batch 1:** canonical contracts, source intelligence, dossier, and agent architecture.
+- **Batch 2:** executable research schema, templates, fixtures, and cross-link validation.
+- **Batch 3:** portable RIGOR core plus ChatGPT, Claude, and Gemini adapters.
+- **Batch 4:** four adversarial evaluation runs across scientific, quantitative, historical, and genealogical regimes. See [evaluation summary](evaluations/summary.md).
 
-## Then
+## Current: Batch 5 — governance and pre-release
 
-- **Batch 3:** portable role protocol and ChatGPT, Claude, and Gemini adapters.
-- **Batch 4:** representative and adversarial evaluation corpus, including scientific, quantitative, historical, and genealogical cases.
-- **Batch 5:** licensing, contribution policy, release gates, independent review, and pre-release package.
+- Choose licensing and contribution policy.
+- Generate complete machine-readable evaluation bundles.
+- Test provider-adapter compatibility.
+- Add release gates and regression fixtures for weaknesses found in Batch 4.
+- Obtain independent review and prepare a pre-release package.
+
+## Release condition
+
+No unresolved critical or major finding; repository, artifact, adapter, and MODA conformance checks pass; an approved release decision records remaining limitations.
