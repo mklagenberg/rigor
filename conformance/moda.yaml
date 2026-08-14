@@ -53,8 +53,8 @@ controls:
     gaps: []
   packaging_and_governance:
     status: "partial"
-    evidence: ["moda.yaml", "AGENTS.md", "CHANGELOG.md", "ROADMAP.md", "skills/rigor-core/SKILL.md", "adapters/", "changes/2026-08-14-evaluation-corpus/"]
-    gaps: ["License and contribution policy are unresolved; no pre-release distribution or cross-provider compatibility evidence exists yet."]
+    evidence: ["moda.yaml", "AGENTS.md", "LICENSE", "CONTRIBUTING.md", "CHANGELOG.md", "ROADMAP.md", "skills/rigor-core/SKILL.md", "adapters/", "changes/2026-08-14-license-and-contributions/"]
+    gaps: ["No pre-release distribution or executed cross-provider compatibility evidence exists yet."]
   validation_and_repair:
     status: "satisfied"
     evidence: ["scripts/validate_repository.py", ".github/workflows/validate.yml"]
