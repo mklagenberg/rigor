@@ -1,0 +1,22 @@
+change:
+  id: "2026-08-14-executable-research-artifacts"
+  class: "operational"
+  status: "in-progress"
+  owner: "Mauricio M. Klagenberg"
+  base_ref: "1eb5da759c810b837f66cc3ced00ca48bcc7e5e8"
+  semver_impact: "minor"
+  structural_change: true
+scope:
+  contracts: ["schemas/", "templates/", "docs/research-artifacts.md"]
+  automation: ["scripts/validate_artifacts.py", "tests/fixtures/"]
+risks:
+  - "Schema could overfit a single vendor."
+  - "Strictness could reward form over evidence."
+mitigations:
+  - "Use JSON Schema and portable YAML templates."
+  - "Validate traceability fields, not qualitative truth."
+validation:
+  required:
+    - "python scripts/validate_repository.py ."
+    - "python scripts/validate_artifacts.py tests/fixtures/valid"
+    - "python scripts/validate_artifacts.py tests/fixtures/invalid-*"
