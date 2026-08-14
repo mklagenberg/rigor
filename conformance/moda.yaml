@@ -48,13 +48,13 @@ controls:
     evidence: ["docs/research-artifacts.md", "docs/evidence-model.md", "docs/citation-and-reference-contract.md"]
     gaps: []
   evaluation_and_safety:
-    status: "partial"
-    evidence: ["SPEC.md#9-evaluation-safety-and-escalation", "docs/evaluation-and-safety.md"]
-    gaps: ["No executed representative or adversarial case corpus yet."]
+    status: "satisfied"
+    evidence: ["SPEC.md#9-evaluation-safety-and-escalation", "docs/evaluation-and-safety.md", "evaluations/rubric.md", "evaluations/summary.md", "evaluations/runs/"]
+    gaps: []
   packaging_and_governance:
     status: "partial"
-    evidence: ["moda.yaml", "AGENTS.md", "CHANGELOG.md", "ROADMAP.md", "changes/2026-08-14-dossier-and-agent-architecture/"]
-    gaps: ["License and contribution policy are unresolved; no distributed skill or adapter exists."]
+    evidence: ["moda.yaml", "AGENTS.md", "CHANGELOG.md", "ROADMAP.md", "skills/rigor-core/SKILL.md", "adapters/", "changes/2026-08-14-evaluation-corpus/"]
+    gaps: ["License and contribution policy are unresolved; no pre-release distribution or cross-provider compatibility evidence exists yet."]
   validation_and_repair:
     status: "satisfied"
     evidence: ["scripts/validate_repository.py", ".github/workflows/validate.yml"]
