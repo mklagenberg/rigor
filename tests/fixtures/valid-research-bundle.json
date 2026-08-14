@@ -1,1 +1,98 @@
-{"schema_version":"0.1.0","brief":{"question":"Does example claim hold?","outcome":"learn","scope":"test","level":3,"level_rationale":"multi-source","permissions":[]},"plan":{"plan_id":"PLAN-001","workstreams":[],"stop_conditions":[]},"sources":[{"source_id":"SR-001","author":"Example Institution","title":"Example source","source_type":"report","venue":"Example repository","published_at":"2026-08-14","accessed_at":"2026-08-14","url":"https://example.test/source","status":"verified","independence_group":"example"}],"claims":[{"claim_id":"CL-001","claim_type":"source_claim","statement":"The example source makes a claim.","citations":["SR-001"],"support_status":"supported"}],"handoffs":[{"handoff_id":"HO-001","role":"evidence-verifier","work_performed":"Normalized source.","claim_ids":["CL-001"],"source_ids":["SR-001"],"gaps":[],"recommended_next_action":"challenge"}],"dossier":{"dossier_id":"DOS-001","title":"Example dossier","plan_id":"PLAN-001","claim_ids":["CL-001"],"conclusion":"Illustrative only.","confidence_rationale":"Fixture.","limitations":[],"revalidation":{"triggers":[],"owner":"test"}}}
+{
+  "schema_version": "0.2.0",
+  "brief": {
+    "question": "Does example claim hold?",
+    "outcome": "learn",
+    "scope": "test",
+    "level": 3,
+    "level_rationale": "multi-source",
+    "permissions": []
+  },
+  "plan": {
+    "plan_id": "PLAN-001",
+    "workstreams": [],
+    "stop_conditions": [],
+    "research_loop": {
+      "max_iterations": 2,
+      "current_iteration": 1,
+      "status": "ready-for-revalidation",
+      "stop_conditions": [
+        "No material discriminating task remains within mandate."
+      ],
+      "reapproval_triggers": [
+        "Material scope, cost, permission, sensitive-data, paid/private-access, contact, or external-action expansion."
+      ]
+    }
+  },
+  "sources": [
+    {
+      "source_id": "SR-001",
+      "author": "Example Institution",
+      "title": "Example source",
+      "source_type": "report",
+      "venue": "Example repository",
+      "published_at": "2026-08-14",
+      "accessed_at": "2026-08-14",
+      "url": "https://example.test/source",
+      "status": "verified",
+      "independence_group": "example"
+    }
+  ],
+  "claims": [
+    {
+      "claim_id": "CL-001",
+      "claim_type": "source_claim",
+      "statement": "The example source makes a claim.",
+      "citations": [
+        "SR-001"
+      ],
+      "support_status": "supported"
+    }
+  ],
+  "handoffs": [
+    {
+      "handoff_id": "HO-001",
+      "role": "evidence-verifier",
+      "work_performed": "Normalized source.",
+      "claim_ids": [
+        "CL-001"
+      ],
+      "source_ids": [
+        "SR-001"
+      ],
+      "gaps": [],
+      "recommended_next_action": "challenge"
+    }
+  ],
+  "dossier": {
+    "dossier_id": "DOS-001",
+    "title": "Example dossier",
+    "plan_id": "PLAN-001",
+    "claim_ids": [
+      "CL-001"
+    ],
+    "conclusion": "Illustrative only.",
+    "confidence_rationale": "Fixture.",
+    "limitations": [],
+    "revalidation": {
+      "triggers": [],
+      "owner": "test"
+    }
+  },
+  "hypotheses": [],
+  "research_frontier": [],
+  "iterations": [
+    {
+      "iteration_id": "IT-001",
+      "objective": "Initial bounded investigation pass.",
+      "task_ids": [],
+      "new_source_ids": [
+        "SR-001"
+      ],
+      "changed_hypothesis_ids": [],
+      "closed_task_ids": [],
+      "outcome": "Initial pass completed; no machine-readable hypothesis frontier was preserved in the legacy artifact.",
+      "frontier_decision": "ready-for-revalidation"
+    }
+  ]
+}

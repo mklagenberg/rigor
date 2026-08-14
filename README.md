@@ -11,6 +11,7 @@ It starts at investigation Levels 3–5; it is deliberately not the default for 
 - maps primary sources, authorities, specialists, communities, incentives, and interests;
 - scales force from structured inquiry to adversarial investigation;
 - preserves claim types, citations, complete references, lineage, dissent, and revalidation;
+- records competing hypotheses and turns discriminating next steps into a finite, prioritized research frontier;
 - uses models as complementary lenses, never as independent evidence;
 - orchestrates composable roles for discovery, verification, challenge, synthesis, and specialist audits.
 
@@ -24,7 +25,7 @@ It starts at investigation Levels 3–5; it is deliberately not the default for 
 
 Example: `Use $rigor to investigate whether [claim] holds. The learning or decision goal is [goal]. Scope: [scope]. Stakes if wrong: [stakes].`
 
-The skill classifies force, creates the master plan, spawns bounded roles when the host supports subagents, records any sequential fallback, validates the Research Bundle, and returns the dense dossier first.
+The skill classifies force, creates the master plan, tests explicit hypotheses, exhausts a bounded research frontier when permitted, spawns bounded roles when the host supports subagents, records any sequential fallback, validates the Research Bundle, and returns the dense dossier first.
 
 ### Methodology reference
 
@@ -35,7 +36,7 @@ The skill classifies force, creates the master plan, spawns bounded roles when t
 
 ## Status
 
-RIGOR is in active development at `0.1.0`. It has a mapped, partial self-assessment against MODA; it does not claim external certification.
+RIGOR is in active development at `0.2.0`. It has a mapped, partial self-assessment against MODA; it does not claim external certification.
 
 ## License and contributions
 

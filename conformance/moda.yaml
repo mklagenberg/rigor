@@ -7,7 +7,7 @@ framework:
 subject:
   id: "rigor"
   kind: "methodology"
-  version: "0.1.0"
+  version: "0.2.0"
   adoption_mode: "native"
 
 assessment:
@@ -33,7 +33,7 @@ controls:
     gaps: []
   decomposition_and_control_flow:
     status: "satisfied"
-    evidence: ["SPEC.md#6-process", "docs/research-process.md", "docs/plan-reconciliation.md"]
+    evidence: ["SPEC.md#6-process", "docs/research-process.md", "docs/hypotheses-and-research-loops.md", "docs/plan-reconciliation.md"]
     gaps: []
   distribution_of_agency:
     status: "satisfied"
@@ -45,7 +45,7 @@ controls:
     gaps: []
   contracts_and_state:
     status: "satisfied"
-    evidence: ["docs/research-artifacts.md", "docs/evidence-model.md", "docs/citation-and-reference-contract.md"]
+    evidence: ["docs/research-artifacts.md", "docs/evidence-model.md", "docs/hypotheses-and-research-loops.md", "schemas/research-bundle.schema.json", "docs/citation-and-reference-contract.md"]
     gaps: []
   evaluation_and_safety:
     status: "satisfied"

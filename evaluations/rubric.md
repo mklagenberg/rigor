@@ -11,6 +11,6 @@ Each case is scored 0–2 on each dimension. A Level 5 case cannot pass with a z
 | Interests/independence | absent | named but unused | mapped and used as interpretation context |
 | Claim discipline | answer-first | mixed labels | typed claims and uncertainty preserved |
 | Handoffs/plan control | opaque | partial record | roles and plan reconciliation auditable |
-| Conclusion/revalidation | overconfident | generic caveat | calibrated scope, dissent, and triggers |
+| Hypothesis/frontier/conclusion | overconfident | generic caveat | testable alternatives, bounded loop outcome, calibrated scope, dissent, and triggers |
 
 A failure is recorded even when the final substantive answer happens to be correct.

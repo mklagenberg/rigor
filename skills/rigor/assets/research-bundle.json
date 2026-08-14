@@ -1,5 +1,5 @@
 {
-  "schema_version": "0.1.0",
+  "schema_version": "0.2.0",
   "brief": {
     "question": "",
     "outcome": "",
@@ -17,10 +17,31 @@
     "plan_id": "PLAN-001",
     "provider_reconciliation": [],
     "workstreams": [],
-    "stop_conditions": []
+    "stop_conditions": [],
+    "research_loop": {
+      "max_iterations": 2,
+      "current_iteration": 1,
+      "status": "open",
+      "stop_conditions": ["No material, discriminating frontier task remains."],
+      "reapproval_triggers": ["Material scope, cost, permission, sensitive/private/paid access, contact, or external action expansion."]
+    }
   },
   "sources": [],
   "claims": [],
+  "hypotheses": [],
+  "research_frontier": [],
+  "iterations": [
+    {
+      "iteration_id": "IT-001",
+      "objective": "Initial bounded investigation pass.",
+      "task_ids": [],
+      "new_source_ids": [],
+      "changed_hypothesis_ids": [],
+      "closed_task_ids": [],
+      "outcome": "Record evidence effects and next frontier decision.",
+      "frontier_decision": "open"
+    }
+  ],
   "handoffs": [],
   "dossier": {
     "dossier_id": "DOS-001",
@@ -36,4 +57,3 @@
     }
   }
 }
-

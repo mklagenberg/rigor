@@ -1,6 +1,6 @@
 # RIGOR Specification
 
-Version: **0.1.0**  
+Version: **0.2.0**
 Status: development
 
 The key words **MUST**, **MUST NOT**, **REQUIRED**, **SHOULD**, **SHOULD NOT**, and **MAY** indicate requirement strength.
@@ -25,7 +25,7 @@ RIGOR distributes parts of this practice to agents and tools, but humans remain 
 
 An investigation MUST record a question, intended outcome, scope, material stakes, time or cost constraints, permitted data/tools/actions, and known limitations or conflicts.
 
-A completed Level 3–5 investigation MUST produce a dossier containing: an investigation brief and level rationale; the RIGOR master plan and any provider-plan reconciliation; a source register and evidence ledger; typed claims with evidence lineage; local citations resolving to complete references; conclusion, confidence, dissent, limitations, uncertainty, and revalidation triggers; and escalation and approval records where applicable.
+A completed Level 3–5 investigation MUST produce a dossier containing: an investigation brief and level rationale; the RIGOR master plan and any provider-plan reconciliation; a source register and evidence ledger; typed claims with evidence lineage; a hypothesis register, research frontier, and iteration journal; local citations resolving to complete references; conclusion, confidence, dissent, limitations, uncertainty, and revalidation triggers; and escalation and approval records where applicable.
 
 Exact shapes are defined in [docs/research-artifacts.md](docs/research-artifacts.md), [docs/dossier-and-derivations.md](docs/dossier-and-derivations.md), and [docs/citation-and-reference-contract.md](docs/citation-and-reference-contract.md).
 
@@ -41,20 +41,23 @@ Claim-specific overlays are selected through [docs/evidence-regimes.md](docs/evi
 
 ## 6. Process
 
-RIGOR follows ten iterative stages:
+RIGOR follows an iterative, hypothesis-aware cycle:
 
 1. **Frame** — define question, outcome, scope, risk, constraints, and level.
-2. **Map** — identify claims, entities, stakeholders, evidence types, interests, and unknowns.
-3. **Plan** — create the RIGOR master plan, workstreams, search strategies, stop conditions, and provider-plan reconciliation when relevant.
+2. **Map** — identify claims, entities, stakeholders, evidence types, interests, unknowns, and credible alternative hypotheses.
+3. **Plan** — create the RIGOR master plan, hypothesis and frontier registers, workstreams, search strategies, loop policy, stop conditions, and provider-plan reconciliation when relevant.
 4. **Collect** — retrieve evidence and preserve source metadata.
 5. **Verify** — evaluate provenance, method, independence, freshness, context, and claim support.
 6. **Analyze** — build claim-evidence links and reproducible derivations.
 7. **Challenge** — seek disconfirming evidence, alternatives, missing denominators, and incentive-driven framing.
-8. **Synthesize** — produce the dossier with typed, traceable conclusions.
-9. **Approve** — obtain required human decision or risk acceptance before an external or high-stakes action.
-10. **Revalidate** — monitor explicit triggers and refresh volatile conclusions.
+8. **Iterate** — update hypotheses and prioritize the research frontier; execute the next bounded iteration only while material tasks remain within mandate.
+9. **Synthesize** — produce the dossier with typed, traceable conclusions, loop outcome, and remaining frontier.
+10. **Approve** — obtain required human decision or risk acceptance before an external or high-stakes action.
+11. **Revalidate** — monitor explicit triggers and refresh volatile conclusions after acceptance.
 
-No stage may silently erase uncertainty, failed searches, or material conflicts.
+No stage may silently erase uncertainty, failed searches, material conflicts, rejected hypotheses, blocked tasks, or an exhausted/paused frontier state.
+
+Hypotheses MAY guide searches and discriminating tests but MUST remain distinct from claims and facts. Expected traces are not evidence. A missing record weakens a hypothesis only after coverage, survival, access, and search adequacy are assessed. See [hypotheses and research loops](docs/hypotheses-and-research-loops.md).
 
 ## 7. Evidence and source requirements
 
@@ -70,15 +73,15 @@ Agents MAY plan, retrieve, extract, classify, compare, and challenge within perm
 
 ## 9. Evaluation, safety, and escalation
 
-Each implementation MUST evaluate representative and adversarial cases. It MUST test official but misleading sources, correlated citations, conflicting data, missing denominators, stale information, and model-generated unsupported claims.
+Each implementation MUST evaluate representative and adversarial cases. It MUST test official but misleading sources, correlated citations, conflicting data, missing denominators, stale information, model-generated unsupported claims, hypothesis laundering, premature absence-of-evidence conclusions, and loop termination or runaway behavior.
 
 Level 5 and high-stakes work require a named human decision owner. Escalation is mandatory when evidence is materially insufficient, access/permissions are unclear, claims could cause material harm, or a conclusion would trigger an external effect.
 
 ## 10. Completion and stop conditions
 
-An investigation is complete when its required dossier sections exist, material claims are typed and evidenced, citations resolve to complete references, counterevidence is addressed, limitations and revalidation triggers are recorded, and required approvals are present.
+An investigation is complete when its required dossier sections exist, material claims are typed and evidenced, citations resolve to complete references, counterevidence is addressed, hypothesis and frontier states are recorded, limitations and revalidation triggers are recorded, and required approvals are present.
 
-It MUST stop or escalate when permissions are absent, evidence cannot support required confidence, costs exceed mandate, or further collection is unlikely to change the decision.
+It MUST stop or escalate when permissions are absent, evidence cannot support required confidence, costs exceed mandate, the configured loop limit is reached, or the remaining frontier has no material expected information gain. Completion MUST distinguish `exhausted-within-scope`, `blocked`, `paused-by-limit`, `ready-for-revalidation`, and `escalated`; no state implies certainty.
 
 ## 11. Evolution
 

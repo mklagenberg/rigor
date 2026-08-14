@@ -16,12 +16,15 @@ All notable changes are documented here.
 - Executable JSON bundles for all four evaluation runs plus deterministic corpus validation and explicit static adapter coverage.
 - Apache-2.0 license, DCO-based contribution policy, and deterministic governance checks.
 - Installable `rigor` orchestration skill with force classification, bounded agent roles, host-capability mapping, sequential fallback, dense-dossier contract, Research Bundle template, and portable validator.
+- Hypothesis register supporting retrospective, prospective, causal, and counterfactual reasoning without laundering hypotheses into evidence.
+- Adaptive, finite research-frontier loop with iteration journal, default limits, re-approval boundaries, and explicit exhaustion outcomes.
 
 ### Changed
 
 - MODA component lifecycle metadata and canonical MODA validation in CI.
 - Roadmap advanced to Batch 5 governance and pre-release.
 - MODA package map, conformance evidence, CI, and practical invocation documentation now include the installable skill while preserving `rigor-core` as the portable embedded protocol.
+- Research Bundle contract advanced from `0.1.0` to `0.2.0`; existing bundles now carry loop policy, hypothesis/frontier registers, and an iteration entry.
 
 ### Known limitations
 

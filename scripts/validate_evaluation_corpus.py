@@ -35,6 +35,11 @@ def main() -> int:
             for item in reconciliations:
                 if item.get("structural_state") != "compatible" or item.get("runtime_state") != "not-executed":
                     raise ValueError(f"{path.name}: provider state must be structural-only until a host run exists")
+            if path.name == "04-klagenberg-origin.json":
+                if not bundle["hypotheses"] or not bundle["research_frontier"] or not bundle["iterations"]:
+                    raise ValueError("04-klagenberg-origin.json: must exercise hypothesis, frontier, and iteration contracts")
+                if not any(task.get("status") == "ready" for task in bundle["research_frontier"]):
+                    raise ValueError("04-klagenberg-origin.json: must preserve a ready next-record task")
     except (OSError, json.JSONDecodeError, ValueError) as error:
         print(f"RIGOR evaluation corpus validation: FAILED\\n- {error}")
         return 1

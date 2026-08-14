@@ -3,13 +3,16 @@
   "$id": "https://github.com/mklagenberg/rigor/schemas/research-bundle.schema.json",
   "title": "RIGOR Research Bundle",
   "type": "object",
-  "required": ["schema_version", "brief", "plan", "sources", "claims", "handoffs", "dossier"],
+  "required": ["schema_version", "brief", "plan", "sources", "claims", "hypotheses", "research_frontier", "iterations", "handoffs", "dossier"],
   "properties": {
-    "schema_version": {"const": "0.1.0"},
+    "schema_version": {"const": "0.2.0"},
     "brief": {"type": "object", "required": ["question", "outcome", "level", "level_rationale", "scope", "permissions"]},
-    "plan": {"type": "object", "required": ["plan_id", "workstreams", "stop_conditions"], "properties": {"plan_id": {"type": "string"}, "workstreams": {"type": "array"}, "stop_conditions": {"type": "array"}}},
+    "plan": {"type": "object", "required": ["plan_id", "workstreams", "stop_conditions", "research_loop"], "properties": {"plan_id": {"type": "string"}, "workstreams": {"type": "array"}, "stop_conditions": {"type": "array"}, "research_loop": {"type": "object", "required": ["max_iterations", "current_iteration", "status", "stop_conditions", "reapproval_triggers"]}}},
     "sources": {"type": "array", "items": {"type": "object", "required": ["source_id", "author", "title", "source_type", "venue", "published_at", "accessed_at", "url", "status", "independence_group"]}},
     "claims": {"type": "array", "items": {"type": "object", "required": ["claim_id", "claim_type", "statement", "citations", "support_status"], "properties": {"citations": {"type": "array", "items": {"type": "string"}}}}},
+    "hypotheses": {"type": "array", "items": {"type": "object", "required": ["hypothesis_id", "statement", "hypothesis_type", "status", "alternative_hypothesis_ids", "expected_traces", "disconfirming_evidence", "supporting_claim_ids", "conflicting_claim_ids", "confidence_rationale"]}},
+    "research_frontier": {"type": "array", "items": {"type": "object", "required": ["task_id", "linked_hypothesis_ids", "question", "evidence_target", "discriminating_value", "decision_impact", "priority", "status", "next_action", "iteration_created", "reason"]}},
+    "iterations": {"type": "array", "items": {"type": "object", "required": ["iteration_id", "objective", "task_ids", "new_source_ids", "changed_hypothesis_ids", "closed_task_ids", "outcome", "frontier_decision"]}},
     "handoffs": {"type": "array", "items": {"type": "object", "required": ["handoff_id", "role", "work_performed", "claim_ids", "source_ids", "gaps", "recommended_next_action"]}},
     "dossier": {"type": "object", "required": ["dossier_id", "title", "plan_id", "claim_ids", "conclusion", "confidence_rationale", "limitations", "revalidation"]}
   }

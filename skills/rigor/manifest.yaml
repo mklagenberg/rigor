@@ -1,12 +1,12 @@
 skill:
   name: "rigor"
-  version: "0.1.0"
+  version: "0.2.0"
   status: "development"
   license: "Apache-2.0"
   source_repository: "https://github.com/mklagenberg/rigor"
   source_path: "skills/rigor"
   methodology: "RIGOR — Research, Investigation, Grounding, Orchestration & Revalidation"
-  research_bundle_schema: "0.1.0"
+  research_bundle_schema: "0.2.0"
 compatibility:
   hosts: ["chatgpt", "codex", "claude", "gemini", "generic-agent-host"]
   subagents: "optional; sequential fallback required"
@@ -15,4 +15,3 @@ update_policy:
   silent_update: false
   security_update_requires_notice: true
   incompatible_update_requires_stop: true
-

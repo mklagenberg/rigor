@@ -14,7 +14,8 @@ A dossier MUST contain:
 6. incentives and interests map where material;
 7. counterevidence, challenge results, dissent, limitations, and uncertainty;
 8. conclusion, confidence rationale, and revalidation triggers;
-9. appendices for searches, extracts, and reproducibility material where feasible.
+9. hypothesis register, research frontier, loop policy, iteration journal, and frontier outcome;
+10. appendices for searches, extracts, and reproducibility material where feasible.
 
 ## Derived formats
 

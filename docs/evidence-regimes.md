@@ -14,6 +14,12 @@ For material numeric claims, preserve the original metric definition, numerator,
 
 Separate what a source says about a name, an event, a historical record, and a documented family relationship. Prefer attributable primary records and archives; record transcription uncertainty, chronology, custody, and gaps. A surname match alone does not establish kinship.
 
+When a hypothesis depends on a missing record, define the exact expected record, holding institution, coverage risk, spelling/date/jurisdiction variants, and an alternative explanation. Do not treat a search lead, index, shared tree, or expected migration route as confirmation.
+
+## Hypothesis, forecasting, and counterfactual reasoning
+
+Use the hypothesis contract for incomplete historical reconstruction, conditional forecasts, causal explanation, and counterfactual comparison. State the target, time horizon where relevant, competing hypotheses, expected observable traces, disconfirmers, assumptions, and conditions. A scenario is a possible future, not a forecast; a forecast is a dated conditional inference, not a fact. Prefer calibrated ranges and explicit uncertainty over unsupported numeric precision.
+
 ## Interests and disclosure
 
 Map both explicit incentives and plausible but unproven interests. Clearly distinguish documented interest, supported inference, and speculation. An interest map changes interpretation; it does not by itself prove a claim false or a person dishonest.

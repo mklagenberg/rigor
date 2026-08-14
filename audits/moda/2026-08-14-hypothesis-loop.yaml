@@ -1,0 +1,48 @@
+audit:
+  id: "rigor-moda-hypothesis-loop-2026-08-14"
+  date: "2026-08-14"
+  mode: "self-audit"
+  supersedes: "audits/moda/2026-08-14-batch-4-close.yaml"
+
+auditor:
+  name: "Codex using MODA skill"
+  version: "1.0.0"
+  authority: "Normative 0.2.0 change self-audit; not external certification."
+
+subject:
+  id: "rigor"
+  kind: "methodology"
+  version: "0.2.0"
+  repository: "https://github.com/mklagenberg/rigor"
+  commit: "ca6ad95a20821128e93fd3ffed153de323f912d1"
+
+framework:
+  id: "moda"
+  version: "1.0.0"
+  repository: "https://github.com/mklagenberg/moda"
+  commit: "81171ed22163f73f250e32534f9edc3a4f8d51e1"
+
+result:
+  profile: "methodology"
+  claim_stage: "mapped"
+  conformance: "partial"
+  critical_findings: 0
+  major_findings: 0
+  minor_findings: 1
+  observations: 1
+
+findings:
+  - id: "RIGOR-MODA-006"
+    severity: "minor"
+    control: "packaging_and_governance"
+    evidence: ["moda.yaml", "skills/rigor/", "CHANGELOG.md", "MIGRATIONS.md"]
+    finding: "The 0.2.0 skill and schema are structurally validated, but no tagged pre-release or executed cross-provider runtime evidence exists."
+    recommendation: "Run representative host executions, retain compatible Bundles, and obtain an approved release decision before a tagged pre-release."
+  - id: "RIGOR-MODA-007"
+    severity: "observation"
+    control: "evaluation_and_safety"
+    evidence: ["evaluations/bundles/04-klagenberg-origin.json", "tests/fixtures/invalid-frontier-reference.json", "scripts/validate_evaluation_corpus.py"]
+    finding: "The corpus deterministically exercises hypothesis/frontier linkage and rejects an invalid reference, but only one case currently contains a non-empty frontier."
+    recommendation: "Add calibrated hypothesis-loop examples in further scientific, quantitative, and prospective provider runs."
+
+exceptions: []

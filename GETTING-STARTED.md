@@ -31,7 +31,9 @@ Use the artifact shapes in [research artifacts](docs/research-artifacts.md).
 
 ## 4. Run the process
 
-Follow [the research process](docs/research-process.md): frame, map, plan, collect, verify, analyze, challenge, synthesize, approve, and revalidate.
+Follow [the research process](docs/research-process.md): frame, map, plan, collect, verify, analyze, challenge, iterate, synthesize, approve, and revalidate. During mapping, record credible alternative hypotheses. During iteration, convert material next steps into a prioritized frontier and continue only within the approved mandate.
+
+The default loop includes the initial pass: 2 iterations at Level 3, 3 at Level 4, and 4 at Level 5. Override it explicitly when needed: `Research loop limit: 6 iterations.` The loop must stop early when no material discriminating task remains; it must ask before a material expansion, private/paid/sensitive access, contact, or other external action.
 
 ## 5. Deliver a decision-ready result
 
@@ -43,6 +45,7 @@ A final RIGOR report contains:
 - key assumptions, limitations, incentives, and missing evidence;
 - research ledger and source register;
 - revalidation triggers and human decision owner where applicable.
+- hypothesis register, iteration journal, and an explicit frontier outcome (`exhausted-within-scope`, `blocked`, `paused-by-limit`, `ready-for-revalidation`, or `escalated`).
 
 ## Minimum prompt
 

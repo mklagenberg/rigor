@@ -8,10 +8,13 @@ The Research Bundle is the machine-readable investigation state. The dossier is 
 - `plan`: canonical workstreams, provider reconciliation, stop conditions, challenge routes.
 - `sources`: one source record per inspectable item or upstream origin.
 - `claims`: typed claim ledger with citations and support state.
+- `hypotheses`: testable working explanations, alternatives, expected traces, and disconfirming tests.
+- `research_frontier`: prioritized, bounded next tasks arising from evidence and hypotheses.
+- `iterations`: journal of completed bounded passes and their frontier decisions.
 - `handoffs`: role outputs and deviations.
 - `dossier`: conclusion, confidence, limitations, and revalidation.
 
-Start from `assets/research-bundle.json`. Use stable IDs: `PLAN-`, `WS-`, `SR-`, `CL-`, `HO-`, and `DOS-`.
+Start from `assets/research-bundle.json`. Use stable IDs: `PLAN-`, `WS-`, `SR-`, `CL-`, `HY-`, `FT-`, `IT-`, `HO-`, and `DOS-`.
 
 ## Claim types
 
@@ -23,6 +26,12 @@ Start from `assets/research-bundle.json`. Use stable IDs: `PLAN-`, `WS-`, `SR-`,
 - `open_question`: unresolved claim or missing evidence.
 
 Never silently convert a source claim, inference, or judgment into fact. A material claim must cite source IDs, or be marked insufficient.
+
+## Hypotheses, frontier, and iterations
+
+A hypothesis is not a claim and has no evidentiary weight on its own. It records type (`retrospective`, `prospective`, `causal`, or `counterfactual`), alternatives, testable traces, disconfirming conditions, linked claims, and status. A missing trace weakens it only after coverage, survival, access, and search adequacy are recorded.
+
+The frontier is a prioritized task queue. Each task names a hypothesis or question, expected information gain, cost, permission boundary, status, and reason. An iteration journal records executed task IDs, evidence/claim effects, frontier changes, and its stop decision. Preserve blocked and deferred tasks rather than replacing them with a narrative recommendation.
 
 ## Source presentation
 
@@ -65,8 +74,9 @@ Map dependence to the upstream source. Ten articles copying one press release fo
 7. counterevidence, alternatives, dissent, and challenge result;
 8. detailed findings with immediate citations;
 9. limitations, open questions, and calibrated non-conclusions;
-10. revalidation triggers, owner, and cadence when relevant;
-11. complete references and reproducibility appendices.
+10. hypothesis register, alternatives, and tests;
+11. research frontier, iteration journal, loop outcome, and remaining work;
+12. revalidation triggers, owner, and cadence when relevant;
+13. complete references and reproducibility appendices.
 
 A derivative must name its source dossier and preserve material qualifications, claim types, citations, and complete reference linkage.
-

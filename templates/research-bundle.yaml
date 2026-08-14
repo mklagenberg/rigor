@@ -1,5 +1,5 @@
-# RIGOR research bundle — schema_version 0.1.0
-schema_version: "0.1.0"
+# RIGOR research bundle — schema_version 0.2.0
+schema_version: "0.2.0"
 brief:
   question: ""
   outcome: ""
@@ -13,6 +13,14 @@ brief:
 plan:
   plan_id: "PLAN-001"
   provider_reconciliation: []
+  research_loop:
+    max_iterations: 2
+    current_iteration: 1
+    status: "open"
+    stop_conditions:
+      - "No material discriminating task remains within mandate."
+    reapproval_triggers:
+      - "Material scope, cost, permission, sensitive-data, paid/private-access, contact, or external-action expansion."
   workstreams:
     - workstream_id: "WS-001"
       question: ""
@@ -43,6 +51,38 @@ claims:
     support_status: "insufficient"
     assumptions: []
     open_questions: []
+hypotheses:
+  - hypothesis_id: "HY-001"
+    statement: ""
+    hypothesis_type: "retrospective"
+    status: "open"
+    alternative_hypothesis_ids: []
+    expected_traces: []
+    disconfirming_evidence: []
+    supporting_claim_ids: ["CL-001"]
+    conflicting_claim_ids: []
+    confidence_rationale: ""
+research_frontier:
+  - task_id: "FT-001"
+    linked_hypothesis_ids: ["HY-001"]
+    question: ""
+    evidence_target: ""
+    discriminating_value: "high"
+    decision_impact: "high"
+    priority: "P0"
+    status: "ready"
+    next_action: ""
+    iteration_created: "IT-001"
+    reason: ""
+iterations:
+  - iteration_id: "IT-001"
+    objective: ""
+    task_ids: ["FT-001"]
+    new_source_ids: ["SR-001"]
+    changed_hypothesis_ids: ["HY-001"]
+    closed_task_ids: []
+    outcome: ""
+    frontier_decision: ""
 handoffs:
   - handoff_id: "HO-001"
     role: "source-discovery"

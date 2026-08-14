@@ -9,11 +9,13 @@ RIGOR is developed and approved in execution batches. See [implementation plan](
 - **Batch 3:** portable RIGOR core plus ChatGPT, Claude, and Gemini adapters.
 - **Batch 4:** four adversarial evaluation runs across scientific, quantitative, historical, and genealogical regimes. See [evaluation summary](evaluations/summary.md).
 - **Batch 5 governance:** Apache-2.0 license, DCO contribution policy, executable evaluation bundles, and an installable RIGOR orchestration skill with deterministic validation.
+- **Batch 6 methodology depth:** explicit hypotheses, bounded adaptive exhaustion, frontier prioritization, and a genealogical next-record regression case.
 
-## Current: Batch 5 — governance and pre-release
+## Current: Batch 6 — validation and pre-release
 
 - Test provider-adapter compatibility.
 - Add release gates and regression fixtures for weaknesses found in Batch 4.
+- Exercise the new loop contract on additional provider runs and assess calibration across prospective and retrospective cases.
 - Obtain independent review and prepare a pre-release package.
 
 ## Release condition

@@ -14,6 +14,7 @@ REQUIRED = (
     "references/activation.md",
     "references/orchestration.md",
     "references/artifacts.md",
+    "references/hypotheses-and-loops.md",
     "references/host-capabilities.md",
     "assets/research-bundle.json",
     "scripts/validate_bundle.py",
@@ -36,7 +37,7 @@ def main() -> int:
             keys = [line.split(":", 1)[0].strip() for line in frontmatter.group(1).splitlines() if ":" in line]
             if keys != ["name", "description"]:
                 failures.append("SKILL.md frontmatter must contain only name and description")
-        for token in ("name: rigor", "Level 0–2", "Research Bundle", "dense dossier", "Never instantiate MODA"):
+        for token in ("name: rigor", "Level 0–2", "Research Bundle", "dense dossier", "hypothesis register", "Never instantiate MODA"):
             if token not in skill:
                 failures.append(f"SKILL.md missing contract token: {token}")
         if "TODO" in skill:
@@ -47,7 +48,7 @@ def main() -> int:
             failures.append("agents/openai.yaml lacks RIGOR invocation metadata")
 
         manifest = (root / "manifest.yaml").read_text(encoding="utf-8")
-        for token in ('version: "0.1.0"', 'source_path: "skills/rigor"', "silent_update: false"):
+        for token in ('version: "0.2.0"', 'research_bundle_schema: "0.2.0"', 'source_path: "skills/rigor"', "silent_update: false"):
             if token not in manifest:
                 failures.append(f"manifest.yaml missing {token}")
 

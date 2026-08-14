@@ -1,6 +1,6 @@
 # Orchestration protocol
 
-The orchestrator owns the brief, master plan, bundle state, role boundaries, escalation decisions, and stop conditions. It does not treat agent agreement as corroboration.
+The orchestrator owns the brief, master plan, hypothesis and frontier registers, bundle state, role boundaries, escalation decisions, loop policy, and stop conditions. It does not treat agent agreement as corroboration.
 
 ## Role catalog
 
@@ -16,6 +16,7 @@ The orchestrator owns the brief, master plan, bundle state, role boundaries, esc
 | Provenance auditor | Audit custody, authenticity, chronology, identity, and record chain | Treating an index or copy as the original record |
 | Interests analyst | Map funding, ownership, mandates, career, political, and reputational interests | Equating an interest with proof of falsehood |
 | Revalidation sentinel | Watch defined triggers after acceptance | Monitoring without an owner or decision rule |
+| Hypothesis and frontier controller | Maintain alternatives, discriminating tests, task priorities, and iteration decisions | Treating a hypothesis or next step as evidence |
 
 ## Role selection by force
 
@@ -50,6 +51,12 @@ confidence_rationale, recommended_next_action
 
 Keep discovery and challenge contexts separated when independence matters. The challenger receives the claim map and evidence ledger, but should not inherit persuasive narrative that is irrelevant to testing the claims.
 
+## Adaptive loop control
+
+The controller may continue to the next iteration without a new user turn only when the task is already within the approved scope, cost, data/tools, and permissions. It must obey the configured maximum and stop early when no material, discriminating frontier task remains. Defaults are 2 iterations at Level 3, 3 at Level 4, and 4 at Level 5, including the initial pass.
+
+Re-approval is required for a material expansion, new sensitive/private/paid access, new permission, contact, or any external action. `exhausted-within-scope`, `blocked`, `paused-by-limit`, `ready-for-revalidation`, and `escalated` are explicit outcomes. Revalidation is a separate post-acceptance activity, not another exhaustion-loop iteration.
+
 ## Plan reconciliation
 
 For each host-native or provider-generated plan, record:
@@ -59,4 +66,3 @@ provider | adopted step | changed step | rejected step | rationale
 ```
 
 Provider plans may contribute search tactics, source access, extraction, translation, or domain coverage. They may not remove RIGOR's level gate, evidence lineage, role separation, challenge pass, artifact contract, approval boundary, or revalidation plan.
-

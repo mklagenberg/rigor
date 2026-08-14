@@ -14,6 +14,7 @@ jobs:
         run: |
           python scripts/validate_artifacts.py tests/fixtures/valid-research-bundle.json
           ! python scripts/validate_artifacts.py tests/fixtures/invalid-unknown-citation.json
+          ! python scripts/validate_artifacts.py tests/fixtures/invalid-frontier-reference.json
       - name: Validate installable skill
         run: |
           python scripts/validate_skill.py skills/rigor

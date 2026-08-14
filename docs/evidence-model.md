@@ -13,6 +13,14 @@ Every substantive statement is one of:
 
 Final reports MUST preserve these distinctions.
 
+## Hypotheses and missing evidence
+
+A hypothesis is a distinct working object, not a claim type. It records a testable explanation, alternatives, expected traces, disconfirming evidence, and current status. It may direct search, calculation, scenario, and challenge work, but it MUST NOT upgrade an inference or expected trace into evidence.
+
+For a missing record, distinguish: record absence, record loss, access/indexing failure, inadequate identity coverage, and evidence that contradicts the hypothesis. “Not found” is not a finding of nonexistence without a coverage assessment.
+
+See [hypotheses and research loops](hypotheses-and-research-loops.md).
+
 ## Evidence lineage
 
 A lineage traces a material claim back to its origin. Record:

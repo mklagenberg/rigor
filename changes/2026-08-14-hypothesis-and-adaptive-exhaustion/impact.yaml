@@ -1,0 +1,50 @@
+change:
+  id: "2026-08-14-hypothesis-and-adaptive-exhaustion"
+  class: "normative"
+  status: "implemented"
+  base_ref: "ca6ad95a20821128e93fd3ffed153de323f912d1"
+  semver_impact: "minor"
+  structural_change: true
+scope:
+  added:
+    - "docs/hypotheses-and-research-loops.md"
+    - "decisions/0008-hypothesis-driven-adaptive-exhaustion.md"
+    - "changes/2026-08-14-hypothesis-and-adaptive-exhaustion/"
+    - "tests/fixtures/invalid-frontier-reference.json"
+  updated:
+    - "SPEC.md"
+    - "docs/research-process.md"
+    - "docs/evidence-model.md"
+    - "docs/evidence-regimes.md"
+    - "docs/dossier-and-derivations.md"
+    - "docs/agent-architecture.md"
+    - "schemas/research-bundle.schema.json"
+    - "templates/research-bundle.yaml"
+    - "scripts/validate_artifacts.py"
+    - "scripts/validate_evaluation_corpus.py"
+    - "skills/rigor-core/SKILL.md"
+    - "skills/rigor/"
+    - "evaluations/bundles/"
+    - "README.md"
+    - "GETTING-STARTED.md"
+    - "CHANGELOG.md"
+    - "ROADMAP.md"
+    - "UPGRADE.md"
+    - "MIGRATIONS.md"
+    - "moda.yaml"
+    - "conformance/moda.yaml"
+    - "scripts/validate_repository.py"
+    - ".github/workflows/validate.yml"
+  reviewed:
+    - "adapters/ — host mappings remain thin; no host-specific rule changes."
+    - "LICENSE and CONTRIBUTING.md — legal and contribution policy unchanged."
+validation:
+  required:
+    - "python scripts/validate_repository.py ."
+    - "python scripts/validate_artifacts.py tests/fixtures/valid-research-bundle.json"
+    - "! python scripts/validate_artifacts.py tests/fixtures/invalid-frontier-reference.json"
+    - "python scripts/validate_evaluation_corpus.py"
+    - "python scripts/validate_skill.py skills/rigor"
+    - "python <MODA>/scripts/validate_moda.py ."
+recovery:
+  policy: "Correct future behavior through a new Change Set; retain migrated artifacts and the 0.2.0 decision record."

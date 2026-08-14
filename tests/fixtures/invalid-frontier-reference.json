@@ -1,11 +1,11 @@
 {
   "schema_version": "0.2.0",
   "brief": {
-    "question": "q",
-    "outcome": "o",
-    "scope": "s",
+    "question": "Does example claim hold?",
+    "outcome": "learn",
+    "scope": "test",
     "level": 3,
-    "level_rationale": "r",
+    "level_rationale": "multi-source",
     "permissions": []
   },
   "plan": {
@@ -27,38 +27,52 @@
   "sources": [
     {
       "source_id": "SR-001",
-      "author": "A",
-      "title": "T",
+      "author": "Example Institution",
+      "title": "Example source",
       "source_type": "report",
-      "venue": "V",
+      "venue": "Example repository",
       "published_at": "2026-08-14",
       "accessed_at": "2026-08-14",
-      "url": "https://example.test",
+      "url": "https://example.test/source",
       "status": "verified",
-      "independence_group": "g"
+      "independence_group": "example"
     }
   ],
   "claims": [
     {
       "claim_id": "CL-001",
       "claim_type": "source_claim",
-      "statement": "x",
+      "statement": "The example source makes a claim.",
       "citations": [
-        "SR-404"
+        "SR-001"
       ],
-      "support_status": "insufficient"
+      "support_status": "supported"
     }
   ],
-  "handoffs": [],
+  "handoffs": [
+    {
+      "handoff_id": "HO-001",
+      "role": "evidence-verifier",
+      "work_performed": "Normalized source.",
+      "claim_ids": [
+        "CL-001"
+      ],
+      "source_ids": [
+        "SR-001"
+      ],
+      "gaps": [],
+      "recommended_next_action": "challenge"
+    }
+  ],
   "dossier": {
     "dossier_id": "DOS-001",
-    "title": "x",
+    "title": "Example dossier",
     "plan_id": "PLAN-001",
     "claim_ids": [
       "CL-001"
     ],
-    "conclusion": "x",
-    "confidence_rationale": "x",
+    "conclusion": "Illustrative only.",
+    "confidence_rationale": "Fixture.",
     "limitations": [],
     "revalidation": {
       "triggers": [],
@@ -66,12 +80,30 @@
     }
   },
   "hypotheses": [],
-  "research_frontier": [],
+  "research_frontier": [
+    {
+      "task_id": "FT-001",
+      "linked_hypothesis_ids": [
+        "HY-404"
+      ],
+      "question": "Invalid reference",
+      "evidence_target": "test",
+      "discriminating_value": "high",
+      "decision_impact": "high",
+      "priority": "P0",
+      "status": "ready",
+      "next_action": "test",
+      "iteration_created": "IT-001",
+      "reason": "test"
+    }
+  ],
   "iterations": [
     {
       "iteration_id": "IT-001",
       "objective": "Initial bounded investigation pass.",
-      "task_ids": [],
+      "task_ids": [
+        "FT-001"
+      ],
       "new_source_ids": [
         "SR-001"
       ],

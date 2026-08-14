@@ -1,1 +1,376 @@
-{"schema_version":"0.1.0","brief":{"question":"What can be documented about the origin of the Klagenberg name and Brazilian lineage under study?","outcome":"Separate surname clues from documented ancestry.","scope":"Historical occurrence, migration leads, and kinship evidence; excludes living-person data.","level":5,"level_rationale":"Genealogical provenance requires identity resolution and privacy controls.","permissions":["public records only","no living-person PII"],"evidence_regimes":["genealogical-provenance","historical-provenance"],"decision_owner":"human reviewer"},"plan":{"plan_id":"PLAN-04","provider_reconciliation":[{"provider":"chatgpt","adapter":"adapters/chatgpt.md","structural_state":"compatible","runtime_state":"not-executed"},{"provider":"claude","adapter":"adapters/claude.md","structural_state":"compatible","runtime_state":"not-executed"},{"provider":"gemini","adapter":"adapters/gemini.md","structural_state":"compatible","runtime_state":"not-executed"}],"workstreams":[{"workstream_id":"WS-01","question":"What records establish the Brazilian cluster and what remains unlinked?","evidence_target":"archival and genealogy records","role":"provenance-auditor","stop_condition":"No ancestry claim without inspected parent-child chain"}],"stop_conditions":["Exclude living-person data.","Stop before asserting European origin without a Brazilian primary anchor."]},"sources":[{"source_id":"SR-001","author":"FamilySearch contributors","title":"Johann Peter Klagenberg (1860–1939)","source_type":"collaborative genealogy profile","venue":"FamilySearch","published_at":"1860-08-21","accessed_at":"2026-08-14","url":"https://ancestors.familysearch.org/G8RS-NW3","status":"discovered","independence_group":"FamilySearch derivative profile"},{"source_id":"SR-002","author":"Geneanet contributor jrambow","title":"Klagenberg search results","source_type":"member-contributed family-tree index","venue":"Geneanet","published_at":"2026-08-14","accessed_at":"2026-08-14","url":"https://pt.geneanet.org/fonds/individus/?go=1&nom=KLAGENBERG","status":"discovered","independence_group":"genealogy tree network"},{"source_id":"SR-003","author":"Instituto Anchietano de Pesquisas, UNISINOS","title":"Acervo Benno Lermen — listagem K","source_type":"archival catalog","venue":"UNISINOS","published_at":"2026-08-14","accessed_at":"2026-08-14","url":"https://www.anchietano.unisinos.br/acervos/acervoBL/listagem.php?dir=K","status":"verified","independence_group":"institutional archive"},{"source_id":"SR-004","author":"Lokalhistorisk Arkiv for Rougsø-Sønderhald-Herreders","title":"Lægdsrulle for Enslev Sogn 1875–1957","source_type":"archival catalog","venue":"Arkiv.dk","published_at":"1875-01-01","accessed_at":"2026-08-14","url":"https://arkiv.dk/vis/2145744","status":"verified","independence_group":"Danish archive"},{"source_id":"SR-005","author":"Ancestry contributors","title":"Hulda G. A. Klagenberg","source_type":"derivative genealogy profile","venue":"Ancestry","published_at":"1888-01-01","accessed_at":"2026-08-14","url":"https://www.ancestry.com/genealogy/records/hulda-g-a-klagenberg-24-g9663c","status":"discovered","independence_group":"genealogy tree network"},{"source_id":"SR-006","author":"Ancestry contributors","title":"Henrich/Heinrich Jacob gen. Klagenberg","source_type":"derivative genealogy profile","venue":"Ancestry","published_at":"1659-01-01","accessed_at":"2026-08-14","url":"https://www.ancestry.com/genealogy/records/henrich-heinrich-jacob-gen-klagenberg-24-1rxr15q","status":"insufficient","independence_group":"genealogy tree network"}],"claims":[{"claim_id":"CL-001","claim_type":"observation","statement":"Derivative records identify a nineteenth-century Feliz/RS cluster associated with Wilhelm Klagenberg and Catharina Lahm.","citations":["SR-001","SR-002"],"support_status":"supported"},{"claim_id":"CL-002","claim_type":"observation","statement":"Institutional catalogs document surname occurrences but not a connection to the Brazilian lineage.","citations":["SR-003","SR-004"],"support_status":"supported"},{"claim_id":"CL-003","claim_type":"observation","statement":"U.S. and earlier European web profiles are unverified leads, not linked ancestry.","citations":["SR-005","SR-006"],"support_status":"insufficient"},{"claim_id":"CL-004","claim_type":"inference","statement":"The Feliz cluster is the strongest current starting point for record inspection.","citations":["SR-001","SR-002","SR-003"],"support_status":"supported"},{"claim_id":"CL-005","claim_type":"judgment","statement":"No definitive origin or cross-continent lineage is established by the collected evidence.","citations":["SR-001","SR-002","SR-003","SR-004","SR-005","SR-006"],"support_status":"supported"},{"claim_id":"CL-006","claim_type":"open_question","statement":"Which Brazilian primary record names Wilhelm Klagenberg's birthplace and parents?","citations":["SR-001","SR-003"],"support_status":"insufficient"}],"handoffs":[{"handoff_id":"HO-01","role":"provenance-auditor","work_performed":"Separated surname occurrence, migration lead, and documented kinship.","claim_ids":["CL-001","CL-002","CL-003"],"source_ids":["SR-001","SR-002","SR-003","SR-004","SR-005","SR-006"],"gaps":["Original record images and continuous parent-child chain absent."],"recommended_next_action":"inspect Brazilian primary records"},{"handoff_id":"HO-02","role":"challenger","work_performed":"Rejected linguistic, tree-copy, and oldest-occurrence shortcuts.","claim_ids":["CL-004","CL-005","CL-006"],"source_ids":["SR-001","SR-002","SR-003","SR-004","SR-005","SR-006"],"gaps":[],"recommended_next_action":"revalidate only after identity anchors are inspected"}],"dossier":{"dossier_id":"DOS-04","title":"Klagenberg family origin","plan_id":"PLAN-04","claim_ids":["CL-001","CL-002","CL-003","CL-004","CL-005","CL-006"],"conclusion":"The strongest lead is the Feliz/RS cluster, but no inspected chain establishes an origin before Brazil or connects other occurrences.","confidence_rationale":"The conclusion preserves uncertainty and source dependence.","limitations":["Underlying record images not inspected.","No living-person data included."],"revalidation":{"triggers":["Brazilian primary record identifies a place or parents for Wilhelm Klagenberg."],"owner":"human family-history reviewer"}}}
+{
+  "schema_version": "0.2.0",
+  "brief": {
+    "question": "What can be documented about the origin of the Klagenberg name and Brazilian lineage under study?",
+    "outcome": "Separate surname clues from documented ancestry.",
+    "scope": "Historical occurrence, migration leads, and kinship evidence; excludes living-person data.",
+    "level": 5,
+    "level_rationale": "Genealogical provenance requires identity resolution and privacy controls.",
+    "permissions": [
+      "public records only",
+      "no living-person PII"
+    ],
+    "evidence_regimes": [
+      "genealogical-provenance",
+      "historical-provenance"
+    ],
+    "decision_owner": "human reviewer"
+  },
+  "plan": {
+    "plan_id": "PLAN-04",
+    "provider_reconciliation": [
+      {
+        "provider": "chatgpt",
+        "adapter": "adapters/chatgpt.md",
+        "structural_state": "compatible",
+        "runtime_state": "not-executed"
+      },
+      {
+        "provider": "claude",
+        "adapter": "adapters/claude.md",
+        "structural_state": "compatible",
+        "runtime_state": "not-executed"
+      },
+      {
+        "provider": "gemini",
+        "adapter": "adapters/gemini.md",
+        "structural_state": "compatible",
+        "runtime_state": "not-executed"
+      }
+    ],
+    "workstreams": [
+      {
+        "workstream_id": "WS-01",
+        "question": "What records establish the Brazilian cluster and what remains unlinked?",
+        "evidence_target": "archival and genealogy records",
+        "role": "provenance-auditor",
+        "stop_condition": "No ancestry claim without inspected parent-child chain"
+      }
+    ],
+    "stop_conditions": [
+      "Exclude living-person data.",
+      "Stop before asserting European origin without a Brazilian primary anchor."
+    ],
+    "research_loop": {
+      "max_iterations": 4,
+      "current_iteration": 1,
+      "status": "open",
+      "stop_conditions": [
+        "No material discriminating task remains within mandate."
+      ],
+      "reapproval_triggers": [
+        "Material scope, cost, permission, sensitive-data, paid/private-access, contact, or external-action expansion."
+      ]
+    }
+  },
+  "sources": [
+    {
+      "source_id": "SR-001",
+      "author": "FamilySearch contributors",
+      "title": "Johann Peter Klagenberg (1860–1939)",
+      "source_type": "collaborative genealogy profile",
+      "venue": "FamilySearch",
+      "published_at": "1860-08-21",
+      "accessed_at": "2026-08-14",
+      "url": "https://ancestors.familysearch.org/G8RS-NW3",
+      "status": "discovered",
+      "independence_group": "FamilySearch derivative profile"
+    },
+    {
+      "source_id": "SR-002",
+      "author": "Geneanet contributor jrambow",
+      "title": "Klagenberg search results",
+      "source_type": "member-contributed family-tree index",
+      "venue": "Geneanet",
+      "published_at": "2026-08-14",
+      "accessed_at": "2026-08-14",
+      "url": "https://pt.geneanet.org/fonds/individus/?go=1&nom=KLAGENBERG",
+      "status": "discovered",
+      "independence_group": "genealogy tree network"
+    },
+    {
+      "source_id": "SR-003",
+      "author": "Instituto Anchietano de Pesquisas, UNISINOS",
+      "title": "Acervo Benno Lermen — listagem K",
+      "source_type": "archival catalog",
+      "venue": "UNISINOS",
+      "published_at": "2026-08-14",
+      "accessed_at": "2026-08-14",
+      "url": "https://www.anchietano.unisinos.br/acervos/acervoBL/listagem.php?dir=K",
+      "status": "verified",
+      "independence_group": "institutional archive"
+    },
+    {
+      "source_id": "SR-004",
+      "author": "Lokalhistorisk Arkiv for Rougsø-Sønderhald-Herreders",
+      "title": "Lægdsrulle for Enslev Sogn 1875–1957",
+      "source_type": "archival catalog",
+      "venue": "Arkiv.dk",
+      "published_at": "1875-01-01",
+      "accessed_at": "2026-08-14",
+      "url": "https://arkiv.dk/vis/2145744",
+      "status": "verified",
+      "independence_group": "Danish archive"
+    },
+    {
+      "source_id": "SR-005",
+      "author": "Ancestry contributors",
+      "title": "Hulda G. A. Klagenberg",
+      "source_type": "derivative genealogy profile",
+      "venue": "Ancestry",
+      "published_at": "1888-01-01",
+      "accessed_at": "2026-08-14",
+      "url": "https://www.ancestry.com/genealogy/records/hulda-g-a-klagenberg-24-g9663c",
+      "status": "discovered",
+      "independence_group": "genealogy tree network"
+    },
+    {
+      "source_id": "SR-006",
+      "author": "Ancestry contributors",
+      "title": "Henrich/Heinrich Jacob gen. Klagenberg",
+      "source_type": "derivative genealogy profile",
+      "venue": "Ancestry",
+      "published_at": "1659-01-01",
+      "accessed_at": "2026-08-14",
+      "url": "https://www.ancestry.com/genealogy/records/henrich-heinrich-jacob-gen-klagenberg-24-1rxr15q",
+      "status": "insufficient",
+      "independence_group": "genealogy tree network"
+    }
+  ],
+  "claims": [
+    {
+      "claim_id": "CL-001",
+      "claim_type": "observation",
+      "statement": "Derivative records identify a nineteenth-century Feliz/RS cluster associated with Wilhelm Klagenberg and Catharina Lahm.",
+      "citations": [
+        "SR-001",
+        "SR-002"
+      ],
+      "support_status": "supported"
+    },
+    {
+      "claim_id": "CL-002",
+      "claim_type": "observation",
+      "statement": "Institutional catalogs document surname occurrences but not a connection to the Brazilian lineage.",
+      "citations": [
+        "SR-003",
+        "SR-004"
+      ],
+      "support_status": "supported"
+    },
+    {
+      "claim_id": "CL-003",
+      "claim_type": "observation",
+      "statement": "U.S. and earlier European web profiles are unverified leads, not linked ancestry.",
+      "citations": [
+        "SR-005",
+        "SR-006"
+      ],
+      "support_status": "insufficient"
+    },
+    {
+      "claim_id": "CL-004",
+      "claim_type": "inference",
+      "statement": "The Feliz cluster is the strongest current starting point for record inspection.",
+      "citations": [
+        "SR-001",
+        "SR-002",
+        "SR-003"
+      ],
+      "support_status": "supported"
+    },
+    {
+      "claim_id": "CL-005",
+      "claim_type": "judgment",
+      "statement": "No definitive origin or cross-continent lineage is established by the collected evidence.",
+      "citations": [
+        "SR-001",
+        "SR-002",
+        "SR-003",
+        "SR-004",
+        "SR-005",
+        "SR-006"
+      ],
+      "support_status": "supported"
+    },
+    {
+      "claim_id": "CL-006",
+      "claim_type": "open_question",
+      "statement": "Which Brazilian primary record names Wilhelm Klagenberg's birthplace and parents?",
+      "citations": [
+        "SR-001",
+        "SR-003"
+      ],
+      "support_status": "insufficient"
+    }
+  ],
+  "handoffs": [
+    {
+      "handoff_id": "HO-01",
+      "role": "provenance-auditor",
+      "work_performed": "Separated surname occurrence, migration lead, and documented kinship.",
+      "claim_ids": [
+        "CL-001",
+        "CL-002",
+        "CL-003"
+      ],
+      "source_ids": [
+        "SR-001",
+        "SR-002",
+        "SR-003",
+        "SR-004",
+        "SR-005",
+        "SR-006"
+      ],
+      "gaps": [
+        "Original record images and continuous parent-child chain absent."
+      ],
+      "recommended_next_action": "inspect Brazilian primary records"
+    },
+    {
+      "handoff_id": "HO-02",
+      "role": "challenger",
+      "work_performed": "Rejected linguistic, tree-copy, and oldest-occurrence shortcuts.",
+      "claim_ids": [
+        "CL-004",
+        "CL-005",
+        "CL-006"
+      ],
+      "source_ids": [
+        "SR-001",
+        "SR-002",
+        "SR-003",
+        "SR-004",
+        "SR-005",
+        "SR-006"
+      ],
+      "gaps": [],
+      "recommended_next_action": "revalidate only after identity anchors are inspected"
+    }
+  ],
+  "dossier": {
+    "dossier_id": "DOS-04",
+    "title": "Klagenberg family origin",
+    "plan_id": "PLAN-04",
+    "claim_ids": [
+      "CL-001",
+      "CL-002",
+      "CL-003",
+      "CL-004",
+      "CL-005",
+      "CL-006"
+    ],
+    "conclusion": "The strongest lead is the Feliz/RS cluster, but no inspected chain establishes an origin before Brazil or connects other occurrences.",
+    "confidence_rationale": "The conclusion preserves uncertainty and source dependence.",
+    "limitations": [
+      "Underlying record images not inspected.",
+      "No living-person data included."
+    ],
+    "revalidation": {
+      "triggers": [
+        "Brazilian primary record identifies a place or parents for Wilhelm Klagenberg."
+      ],
+      "owner": "human family-history reviewer"
+    }
+  },
+  "hypotheses": [
+    {
+      "hypothesis_id": "HY-001",
+      "statement": "The nineteenth-century Feliz cluster descends from an immigrant Wilhelm Klagenberg whose birthplace and parents can be identified in a Brazilian primary record.",
+      "hypothesis_type": "retrospective",
+      "status": "open",
+      "alternative_hypothesis_ids": [
+        "HY-002"
+      ],
+      "expected_traces": [
+        "Civil, church, immigration, naturalization, marriage, or death record naming birthplace or parents."
+      ],
+      "disconfirming_evidence": [
+        "Primary record assigning incompatible origin or parents."
+      ],
+      "supporting_claim_ids": [
+        "CL-001",
+        "CL-004"
+      ],
+      "conflicting_claim_ids": [],
+      "confidence_rationale": "The Feliz cluster is the strongest current anchor, but no inspected primary identity chain exists."
+    },
+    {
+      "hypothesis_id": "HY-002",
+      "statement": "Earlier European or U.S. surname occurrences identify the origin of the Brazilian lineage.",
+      "hypothesis_type": "retrospective",
+      "status": "open",
+      "alternative_hypothesis_ids": [
+        "HY-001"
+      ],
+      "expected_traces": [
+        "Documented parent-child or migration chain linking the occurrence to the Feliz cluster."
+      ],
+      "disconfirming_evidence": [
+        "Primary records establish the occurrence as an unrelated lineage."
+      ],
+      "supporting_claim_ids": [],
+      "conflicting_claim_ids": [
+        "CL-005"
+      ],
+      "confidence_rationale": "Surname occurrence alone is insufficient for lineage identity."
+    }
+  ],
+  "research_frontier": [
+    {
+      "task_id": "FT-001",
+      "linked_hypothesis_ids": [
+        "HY-001"
+      ],
+      "question": "Which inspected Brazilian primary record identifies Wilhelm Klagenberg's birthplace and parents?",
+      "evidence_target": "civil, church, immigration, naturalization, or archival primary record",
+      "discriminating_value": "high",
+      "decision_impact": "high",
+      "priority": "P0",
+      "status": "ready",
+      "next_action": "Inspect original or digitized record images and transcribe identity fields.",
+      "iteration_created": "IT-001",
+      "reason": "Would distinguish the strongest current identity hypothesis from same-surname alternatives."
+    },
+    {
+      "task_id": "FT-002",
+      "linked_hypothesis_ids": [
+        "HY-002"
+      ],
+      "question": "Do earlier European occurrences connect by an auditable chain to the RS lineage?",
+      "evidence_target": "primary historical records and linked generational evidence",
+      "discriminating_value": "medium",
+      "decision_impact": "medium",
+      "priority": "P2",
+      "status": "deferred",
+      "next_action": "Search only after a Brazilian or migration record provides a verified anchor.",
+      "iteration_created": "IT-001",
+      "reason": "Oldest discovered surname occurrence is not itself an origin proof."
+    }
+  ],
+  "iterations": [
+    {
+      "iteration_id": "IT-001",
+      "objective": "Map surname occurrences, the RS cluster, hypotheses, and decisive next records.",
+      "task_ids": [
+        "FT-001",
+        "FT-002"
+      ],
+      "new_source_ids": [
+        "SR-001",
+        "SR-002",
+        "SR-003",
+        "SR-004",
+        "SR-005",
+        "SR-006"
+      ],
+      "changed_hypothesis_ids": [
+        "HY-001",
+        "HY-002"
+      ],
+      "closed_task_ids": [],
+      "outcome": "Brazilian anchor hypothesis remains open; no continuous primary-record chain established.",
+      "frontier_decision": "continue with FT-001 before broader occurrence research"
+    }
+  ]
+}
