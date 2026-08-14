@@ -14,7 +14,7 @@ artifact:
   status: "development"
   language: "en"
   repository: "https://github.com/mklagenberg/rigor"
-  license: "NOASSERTION"
+  license: "Apache-2.0"
 
 adoption:
   relationship: "conforms_to"
