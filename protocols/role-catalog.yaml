@@ -1,0 +1,13 @@
+version: "0.1.0"
+kernel:
+  orchestrator: {activation: "all Level 3-5 investigations", output: "brief, master plan, escalation decisions"}
+  source-discovery: {activation: "after plan approval", output: "candidate sources; no validation verdict"}
+  evidence-verifier: {activation: "after discovery", output: "source records, claim links, independence assessment"}
+  challenger: {activation: "Level 4-5; Level 3 when material uncertainty remains", output: "counterevidence and alternatives"}
+  dossier-synthesizer: {activation: "after verification and challenge", output: "ledger-backed dossier sections"}
+specialists:
+  scientific-method-auditor: {activation: "scientific-critical regime"}
+  quantitative-auditor: {activation: "material numeric claim or visualized data"}
+  provenance-auditor: {activation: "historical or genealogical provenance regime"}
+  interests-analyst: {activation: "material incentive or undisclosed-interest risk"}
+  revalidation-sentinel: {activation: "accepted volatile dossier"}
