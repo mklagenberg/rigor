@@ -1,0 +1,91 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/mklagenberg/rigor/schemas/research-bundle.0.3.0.schema.json",
+  "title": "RIGOR Research Bundle 0.3.0",
+  "description": "Adds a typed decomposition graph, node backlinks, an expansion budget, and recorded expansion verdicts. Supersedes research-bundle.schema.json for bundles declaring schema_version 0.3.0; 0.2.0 bundles remain valid against the prior contract.",
+  "type": "object",
+  "required": ["schema_version", "brief", "plan", "sources", "claims", "hypotheses", "research_frontier", "iterations", "handoffs", "dossier"],
+  "properties": {
+    "schema_version": {"const": "0.3.0"},
+    "brief": {
+      "type": "object",
+      "required": ["question", "outcome", "level", "level_rationale", "scope", "permissions", "expansion_budget"],
+      "properties": {
+        "level": {"type": "integer", "enum": [3, 4, 5]},
+        "expansion_budget": {
+          "type": "object",
+          "required": ["max_depth", "max_children_per_node", "max_nodes", "set_by"],
+          "properties": {
+            "max_depth": {"type": "integer", "minimum": 0, "description": "Maximum node depth below the root. Defaults follow level: 1 at L3, 2 at L4, 3 at L5."},
+            "max_children_per_node": {"type": "integer", "minimum": 1, "description": "Breadth cap applied per parent, not globally."},
+            "max_nodes": {"type": "integer", "minimum": 1, "description": "Total-node backstop. Never the primary control."},
+            "set_by": {"enum": ["default", "user", "reapproved"], "description": "Records whether the budget was chosen by the methodology default, set at intake by the user, or widened through re-approval."}
+          }
+        }
+      }
+    },
+    "plan": {
+      "type": "object",
+      "required": ["plan_id", "workstreams", "expansion_decisions", "stop_conditions", "research_loop"],
+      "properties": {
+        "plan_id": {"type": "string"},
+        "workstreams": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "object",
+            "required": ["workstream_id", "question", "evidence_target", "role", "stop_condition", "node_role", "relation", "parent_id", "depth", "interprets_workstream_ids", "evidence_regimes", "temporal_scope", "jurisdiction", "decision_impact", "status"],
+            "properties": {
+              "workstream_id": {"type": "string", "pattern": "^WS-"},
+              "node_role": {"enum": ["primary", "context"], "description": "primary answers part of the question; context is required to interpret evidence held by another node."},
+              "relation": {"enum": ["root", "decomposes", "interprets", "enables", "competes"], "description": "Typed edge to the parent. An untyped adjacency is a mind map, not a control."},
+              "parent_id": {"type": ["string", "null"], "description": "Null only for the single root node."},
+              "depth": {"type": "integer", "minimum": 0},
+              "interprets_workstream_ids": {"type": "array", "items": {"type": "string"}, "description": "Required non-empty for context nodes; must be empty for primary nodes."},
+              "evidence_regimes": {"type": "array", "items": {"type": "string"}, "description": "Node-scoped regimes. A single investigation-wide regime list loses the regime that applies to one branch only."},
+              "temporal_scope": {"type": "string", "description": "Period the node's claims are asserted for. Time is an attribute of every node, not a node."},
+              "jurisdiction": {"type": "string"},
+              "decision_impact": {"enum": ["high", "medium", "low"]},
+              "status": {"enum": ["unexplored", "open", "closed-productive", "closed-no-gain", "blocked", "blocked-by-budget"]}
+            }
+          }
+        },
+        "expansion_decisions": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": ["decision_id", "workstream_id", "verdict", "predicate", "predicate_result", "iteration_id", "rationale"],
+            "properties": {
+              "decision_id": {"type": "string", "pattern": "^EX-"},
+              "workstream_id": {"type": "string"},
+              "verdict": {"enum": ["allow", "deny-record", "escalate"]},
+              "predicate": {"enum": ["within-budget", "P1-load-bearing-interpretation", "P2-sole-discriminator", "none"]},
+              "predicate_result": {"type": "boolean"},
+              "iteration_id": {"type": "string"},
+              "rationale": {"type": "string"}
+            }
+          }
+        },
+        "stop_conditions": {"type": "array"},
+        "research_loop": {"type": "object", "required": ["max_iterations", "current_iteration", "status", "stop_conditions", "reapproval_triggers"]}
+      }
+    },
+    "sources": {"type": "array", "items": {"type": "object", "required": ["source_id", "author", "title", "source_type", "venue", "published_at", "accessed_at", "url", "status", "independence_group"]}},
+    "claims": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["claim_id", "claim_type", "statement", "citations", "support_status", "workstream_ids"],
+        "properties": {
+          "citations": {"type": "array", "items": {"type": "string"}},
+          "workstream_ids": {"type": "array", "minItems": 1, "items": {"type": "string"}, "description": "Backlink to the decomposition. Without it, coverage of the declared graph cannot be audited."}
+        }
+      }
+    },
+    "hypotheses": {"type": "array", "items": {"type": "object", "required": ["hypothesis_id", "statement", "hypothesis_type", "status", "alternative_hypothesis_ids", "expected_traces", "disconfirming_evidence", "supporting_claim_ids", "conflicting_claim_ids", "confidence_rationale"]}},
+    "research_frontier": {"type": "array", "items": {"type": "object", "required": ["task_id", "workstream_id", "linked_hypothesis_ids", "question", "evidence_target", "discriminating_value", "decision_impact", "priority", "status", "next_action", "iteration_created", "reason"]}},
+    "iterations": {"type": "array", "items": {"type": "object", "required": ["iteration_id", "objective", "task_ids", "new_source_ids", "changed_hypothesis_ids", "closed_task_ids", "outcome", "frontier_decision"]}},
+    "handoffs": {"type": "array", "items": {"type": "object", "required": ["handoff_id", "workstream_id", "role", "work_performed", "claim_ids", "source_ids", "gaps", "recommended_next_action"]}},
+    "dossier": {"type": "object", "required": ["dossier_id", "title", "plan_id", "claim_ids", "conclusion", "confidence_rationale", "limitations", "revalidation"]}
+  }
+}

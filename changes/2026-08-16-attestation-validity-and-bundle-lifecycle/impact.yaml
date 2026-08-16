@@ -1,0 +1,63 @@
+change:
+  id: "2026-08-16-attestation-validity-and-bundle-lifecycle"
+  class: "normative"
+  status: "proposed"
+  owner: "Mauricio M. Klagenberg"
+  base_ref: "pending — linear successor to 2026-08-16-decomposition-graph-and-expansion-budget; rebase onto its completion commit"
+  semver_impact: "minor"
+  structural_change: true
+  research_bundle_schema: "0.4.0"
+scope:
+  added:
+    - "docs/attestation-and-validity.md"
+    - "decisions/0012-process-attestation-not-verification-seal.md"
+    - "decisions/0013-validity-classes-by-decay-mechanism.md"
+    - "decisions/0014-two-phase-acquisition-and-revalidation-lifecycle.md"
+    - "schemas/research-bundle.0.4.0.schema.json"
+    - "tests/fixtures/valid-research-bundle-0.4.0.json"
+    - "tests/fixtures/invalid-validity-inheritance.json"
+    - "changes/2026-08-16-attestation-validity-and-bundle-lifecycle/"
+  updated:
+    - "scripts/validate_artifacts.py"
+    - "decisions/rejected-alternatives.md"
+  pending:
+    - "SPEC.md — sections 4, 7, and 11 must state the attestation, claim validity, and lifecycle contracts before projections."
+    - "docs/dossier-and-derivations.md — a derivative must carry the attestation of the dossier it derives from."
+    - "docs/evidence-model.md — claim-level validity class and trigger."
+    - "docs/hypotheses-and-research-loops.md — revalidation output distinguished from the iteration journal."
+    - "docs/agent-architecture.md — revalidation sentinel handoff shape."
+    - "templates/research-bundle.yaml — attestation, validity fields, revalidations, bundle_version."
+    - "skills/rigor/ and skills/rigor-core/ — attestation emission and revalidation output."
+    - "moda.yaml, conformance/moda.yaml, scripts/validate_repository.py, .github/workflows/validate.yml"
+    - "CHANGELOG.md, MIGRATIONS.md, ROADMAP.md, UPGRADE.md — 0.3.0 to 0.4.0 migration and batch entry."
+    - "evaluations/bundles/ — corpus migration deferred to its own linear Change Set."
+  reviewed:
+    - "adapters/ — the attestation is data, not a host rule; mappings remain thin."
+    - "docs/citation-and-reference-contract.md — the attestation resolves under the existing citation-resolution rule; no change needed."
+    - "LICENSE and CONTRIBUTING.md — unchanged."
+risks:
+  - "A process attestation may still be read as an endorsement of correctness."
+  - "Weakest-class inheritance may shorten a conclusion's stated shelf life more than materiality warrants."
+  - "Validity class assignment may become rote rather than reasoned."
+  - "Revalidations may accumulate without version discipline."
+mitigations:
+  - "No attestation field asserts truth; adverse states and the claim profile are mandatory, and presenting it as certification is forbidden."
+  - "validity_driver_claim_ids names the claims aging the conclusion; the class ordering is declared a design judgement open to challenge."
+  - "validity_trigger is required and must name a concrete event, publication, or cadence."
+  - "bundle_version must equal one plus the recorded revalidations, and the attestation must point at the latest entry."
+compatibility:
+  contract: "additive and version-gated"
+  legacy: "0.2.0 and 0.3.0 bundles remain valid against the version they declare"
+  migration: "changes/2026-08-16-attestation-validity-and-bundle-lifecycle/proposal.md#migration"
+validation:
+  required:
+    - "python scripts/validate_repository.py ."
+    - "python scripts/validate_artifacts.py tests/fixtures/valid-research-bundle-0.4.0.json"
+    - "! python scripts/validate_artifacts.py tests/fixtures/invalid-validity-inheritance.json"
+    - "python scripts/validate_artifacts.py tests/fixtures/valid-research-bundle-0.3.0.json"
+    - "python scripts/validate_artifacts.py tests/fixtures/valid-research-bundle.json"
+    - "python scripts/validate_evaluation_corpus.py"
+    - "python scripts/validate_skill.py skills/rigor"
+    - "python <MODA>/scripts/validate_moda.py . against verified_commit"
+recovery:
+  policy: "Supersede this Change Set or revert its commit. No earlier-version artifact is altered, and no attestation is emitted for an artifact that has not passed validation."

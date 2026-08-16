@@ -1,0 +1,307 @@
+{
+  "schema_version": "0.4.0",
+  "brief": {
+    "question": "Does example claim hold?",
+    "outcome": "learn",
+    "scope": "test",
+    "level": 4,
+    "level_rationale": "contested and incentive-laden",
+    "permissions": [],
+    "expansion_budget": {
+      "max_depth": 2,
+      "max_children_per_node": 2,
+      "max_nodes": 8,
+      "set_by": "default"
+    }
+  },
+  "plan": {
+    "plan_id": "PLAN-001",
+    "workstreams": [
+      {
+        "workstream_id": "WS-001",
+        "question": "Does example claim hold?",
+        "evidence_target": "whole-question synthesis",
+        "role": "orchestrator",
+        "stop_condition": "No conclusion without a typed, cited claim.",
+        "node_role": "primary",
+        "relation": "root",
+        "parent_id": null,
+        "depth": 0,
+        "interprets_workstream_ids": [],
+        "evidence_regimes": [
+          "general"
+        ],
+        "temporal_scope": "2026",
+        "jurisdiction": "n/a",
+        "decision_impact": "high",
+        "status": "open"
+      },
+      {
+        "workstream_id": "WS-002",
+        "question": "What does the example source state?",
+        "evidence_target": "the source record",
+        "role": "evidence-verifier",
+        "stop_condition": "No claim beyond what the record states.",
+        "node_role": "primary",
+        "relation": "decomposes",
+        "parent_id": "WS-001",
+        "depth": 1,
+        "interprets_workstream_ids": [],
+        "evidence_regimes": [
+          "general"
+        ],
+        "temporal_scope": "2026",
+        "jurisdiction": "n/a",
+        "decision_impact": "high",
+        "status": "open"
+      },
+      {
+        "workstream_id": "WS-003",
+        "question": "How does the publisher's recording practice affect how the record must be read?",
+        "evidence_target": "publisher method documentation",
+        "role": "provenance-auditor",
+        "stop_condition": "Coverage and access assessed before any absence is read as evidence.",
+        "node_role": "context",
+        "relation": "interprets",
+        "parent_id": "WS-001",
+        "depth": 1,
+        "interprets_workstream_ids": [
+          "WS-002"
+        ],
+        "evidence_regimes": [
+          "historical-provenance"
+        ],
+        "temporal_scope": "2026",
+        "jurisdiction": "n/a",
+        "decision_impact": "high",
+        "status": "unexplored"
+      },
+      {
+        "workstream_id": "WS-004",
+        "question": "What do adjacent record series add?",
+        "evidence_target": "adjacent series",
+        "role": "source-discovery",
+        "stop_condition": "Not started.",
+        "node_role": "context",
+        "relation": "interprets",
+        "parent_id": "WS-001",
+        "depth": 1,
+        "interprets_workstream_ids": [
+          "WS-002"
+        ],
+        "evidence_regimes": [
+          "general"
+        ],
+        "temporal_scope": "2026",
+        "jurisdiction": "n/a",
+        "decision_impact": "low",
+        "status": "blocked-by-budget"
+      }
+    ],
+    "stop_conditions": [],
+    "research_loop": {
+      "max_iterations": 2,
+      "current_iteration": 1,
+      "status": "open",
+      "stop_conditions": [
+        "No material discriminating task remains within mandate."
+      ],
+      "reapproval_triggers": [
+        "Material scope, cost, permission, sensitive-data, paid/private-access, contact, or external-action expansion."
+      ]
+    },
+    "expansion_decisions": [
+      {
+        "decision_id": "EX-001",
+        "workstream_id": "WS-002",
+        "verdict": "allow",
+        "predicate": "within-budget",
+        "predicate_result": true,
+        "iteration_id": "IT-001",
+        "rationale": "Within the approved expansion budget."
+      },
+      {
+        "decision_id": "EX-002",
+        "workstream_id": "WS-003",
+        "verdict": "allow",
+        "predicate": "within-budget",
+        "predicate_result": true,
+        "iteration_id": "IT-001",
+        "rationale": "Within the approved expansion budget."
+      },
+      {
+        "decision_id": "EX-003",
+        "workstream_id": "WS-004",
+        "verdict": "deny-record",
+        "predicate": "none",
+        "predicate_result": false,
+        "iteration_id": "IT-001",
+        "rationale": "Budget blocked (parent WS-001 would hold 3 explored children, above max_children_per_node 2). Neither predicate fired."
+      }
+    ]
+  },
+  "sources": [
+    {
+      "source_id": "SR-001",
+      "author": "Example Institution",
+      "title": "Example source",
+      "source_type": "report",
+      "venue": "Example repository",
+      "published_at": "2026-08-14",
+      "accessed_at": "2026-08-14",
+      "url": "https://example.test/source",
+      "status": "verified",
+      "independence_group": "example"
+    }
+  ],
+  "claims": [
+    {
+      "claim_id": "CL-001",
+      "claim_type": "source_claim",
+      "statement": "The example source makes a claim.",
+      "citations": [
+        "SR-001"
+      ],
+      "support_status": "supported",
+      "workstream_ids": [
+        "WS-002"
+      ],
+      "validity_class": "static",
+      "validity_trigger": "A newly inspected upstream record contradicts the reading."
+    },
+    {
+      "claim_id": "CL-002",
+      "claim_type": "judgment",
+      "statement": "The example source cannot settle the question alone.",
+      "citations": [
+        "SR-001"
+      ],
+      "support_status": "insufficient",
+      "workstream_ids": [
+        "WS-001"
+      ],
+      "validity_class": "measured",
+      "validity_trigger": "The publisher's next scheduled release supersedes the edition inspected.",
+      "criteria": "Sufficiency requires at least two independent evidence lineages."
+    }
+  ],
+  "handoffs": [
+    {
+      "handoff_id": "HO-001",
+      "role": "evidence-verifier",
+      "work_performed": "Normalized source.",
+      "claim_ids": [
+        "CL-001"
+      ],
+      "source_ids": [
+        "SR-001"
+      ],
+      "gaps": [],
+      "recommended_next_action": "challenge",
+      "workstream_id": "WS-002"
+    }
+  ],
+  "dossier": {
+    "dossier_id": "DOS-001",
+    "title": "Example dossier",
+    "plan_id": "PLAN-001",
+    "claim_ids": [
+      "CL-001",
+      "CL-002"
+    ],
+    "conclusion": "Illustrative only.",
+    "confidence_rationale": "Fixture.",
+    "limitations": [
+      "WS-004 (adjacent record series) was blocked by the expansion budget and was not investigated."
+    ],
+    "revalidation": {
+      "triggers": [],
+      "owner": "test"
+    },
+    "validity_class": "static",
+    "validity_driver_claim_ids": [
+      "CL-001"
+    ]
+  },
+  "hypotheses": [
+    {
+      "hypothesis_id": "HY-001",
+      "statement": "The example source is the origin of the claim.",
+      "hypothesis_type": "retrospective",
+      "status": "open",
+      "alternative_hypothesis_ids": [
+        "HY-002"
+      ],
+      "expected_traces": [
+        "An upstream record naming the same figure."
+      ],
+      "disconfirming_evidence": [
+        "An earlier independent record."
+      ],
+      "supporting_claim_ids": [
+        "CL-001"
+      ],
+      "conflicting_claim_ids": [],
+      "confidence_rationale": "Single inspected record."
+    },
+    {
+      "hypothesis_id": "HY-002",
+      "statement": "The example source copies an earlier record.",
+      "hypothesis_type": "retrospective",
+      "status": "open",
+      "alternative_hypothesis_ids": [
+        "HY-001"
+      ],
+      "expected_traces": [
+        "An earlier record with identical wording."
+      ],
+      "disconfirming_evidence": [
+        "No earlier record exists in a covered archive."
+      ],
+      "supporting_claim_ids": [],
+      "conflicting_claim_ids": [
+        "CL-001"
+      ],
+      "confidence_rationale": "Untested alternative."
+    }
+  ],
+  "research_frontier": [],
+  "iterations": [
+    {
+      "iteration_id": "IT-001",
+      "objective": "Initial bounded investigation pass.",
+      "task_ids": [],
+      "new_source_ids": [
+        "SR-001"
+      ],
+      "changed_hypothesis_ids": [
+        "HY-001",
+        "HY-002"
+      ],
+      "closed_task_ids": [],
+      "outcome": "Initial pass completed; the decomposition graph and its expansion verdicts are recorded.",
+      "frontier_decision": "continue"
+    }
+  ],
+  "bundle_version": 1,
+  "revalidations": [],
+  "attestation": {
+    "methodology": "RIGOR",
+    "methodology_version": "0.2.0",
+    "schema_version": "0.4.0",
+    "bundle_id": "DOS-001",
+    "level": 4,
+    "validator_status": "passed",
+    "procedural_independence": "limited",
+    "loop_status": "open",
+    "claim_profile": {
+      "supported": 1,
+      "contested": 0,
+      "insufficient": 1,
+      "other": 0
+    },
+    "validity_class": "static",
+    "latest_revalidation_id": null,
+    "resolves_to": "tests/fixtures/valid-research-bundle-0.4.0.json"
+  }
+}
