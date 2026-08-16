@@ -1,0 +1,68 @@
+change:
+  id: "2026-08-16-decomposition-graph-and-expansion-budget"
+  class: "normative"
+  status: "proposed"
+  owner: "Mauricio M. Klagenberg"
+  base_ref: "b3d5d75d07282020b34bae18230f1ce84497315e"
+  semver_impact: "minor"
+  structural_change: true
+  research_bundle_schema: "0.3.0"
+scope:
+  added:
+    - "docs/decomposition-and-expansion.md"
+    - "decisions/0009-typed-decomposition-graph.md"
+    - "decisions/0010-deterministic-expansion-budget-and-escalation.md"
+    - "decisions/0011-rejected-alternatives-register.md"
+    - "decisions/rejected-alternatives.md"
+    - "schemas/research-bundle.0.3.0.schema.json"
+    - "scripts/check_expansion.py"
+    - "tests/fixtures/valid-research-bundle-0.3.0.json"
+    - "tests/fixtures/invalid-orphan-context-node.json"
+    - "tests/fixtures/invalid-expansion-budget.json"
+    - "changes/2026-08-16-decomposition-graph-and-expansion-budget/"
+  updated:
+    - "scripts/validate_artifacts.py"
+  pending:
+    - "SPEC.md — sections 6 and 10 must state the decomposition contract and the expansion stop condition before projections."
+    - "docs/research-process.md — Map and Plan stages must name node typing and the spawn criterion."
+    - "docs/agent-architecture.md — challenger gains the decomposition-challenge responsibility."
+    - "docs/executable-research-artifacts.md — ID list must add WS- and EX-."
+    - "templates/research-bundle.yaml — workstream item, expansion budget, and expansion decisions."
+    - "skills/rigor/ and skills/rigor-core/ — mirror the contract, the gate invocation, and the mirrored validator."
+    - "moda.yaml, conformance/moda.yaml, scripts/validate_repository.py, .github/workflows/validate.yml — register the new components and commands."
+    - "CHANGELOG.md, MIGRATIONS.md, ROADMAP.md, UPGRADE.md — 0.2.0 to 0.3.0 bundle migration and batch entry."
+    - "evaluations/bundles/ — corpus migration is deferred to its own linear Change Set; it changes evaluation evidence."
+  reviewed:
+    - "adapters/ — host mappings remain thin; the gate is a portable script, not a host-specific rule."
+    - "LICENSE and CONTRIBUTING.md — legal and contribution policy unchanged."
+    - "docs/citation-and-reference-contract.md — citation contract unchanged; node backlinks are orthogonal to source references."
+risks:
+  - "Structural coverage of a declared graph can be mistaken for coverage of the question; a missing node is invisible to validation."
+  - "A typed register invites node inflation and cost expansion."
+  - "An agent may skip the pre-spawn gate and write nodes directly."
+  - "The escalation predicate may be too narrow and deny a load-bearing node."
+mitigations:
+  - "Challenging the decomposition itself becomes an explicit challenge-pass responsibility recorded as a frontier task or limitation."
+  - "Hard depth cap defaulting by level, per-parent breadth cap, and a spawn criterion that excludes thematic affinity."
+  - "Recorded expansion verdicts are required downstream; a node without a matching verdict fails validation."
+  - "Predicate failures are preserved as regression evidence and answered by extending the predicate, never by restoring judgement-based escalation."
+compatibility:
+  contract: "additive and version-gated"
+  legacy: "0.2.0 bundles remain valid against 0.2.0; new obligations attach to 0.3.0"
+  migration: "changes/2026-08-16-decomposition-graph-and-expansion-budget/proposal.md#migration"
+validation:
+  required:
+    - "python scripts/validate_repository.py ."
+    - "python scripts/validate_artifacts.py tests/fixtures/valid-research-bundle.json"
+    - "python scripts/validate_artifacts.py tests/fixtures/valid-research-bundle-0.3.0.json"
+    - "! python scripts/validate_artifacts.py tests/fixtures/invalid-orphan-context-node.json"
+    - "! python scripts/validate_artifacts.py tests/fixtures/invalid-expansion-budget.json"
+    - "! python scripts/validate_artifacts.py tests/fixtures/invalid-unknown-citation.json"
+    - "! python scripts/validate_artifacts.py tests/fixtures/invalid-frontier-reference.json"
+    - "python scripts/validate_evaluation_corpus.py"
+    - "python scripts/validate_skill.py skills/rigor"
+    - "python <MODA>/scripts/validate_moda.py . against verified_commit"
+  gate_behaviour:
+    - "python scripts/check_expansion.py BUNDLE.json NODE.json  # exit 0 allow, 3 deny-record, 4 escalate"
+recovery:
+  policy: "Supersede this Change Set or revert its commit. No 0.2.0 artifact is altered and no user-data migration is required."
