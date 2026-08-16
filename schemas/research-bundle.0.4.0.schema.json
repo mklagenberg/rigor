@@ -1,0 +1,88 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/mklagenberg/rigor/schemas/research-bundle.0.4.0.schema.json",
+  "title": "RIGOR Research Bundle 0.4.0",
+  "description": "Extends 0.3.0 with claim-level validity classes, a derived conclusion validity, a process attestation that carries adverse states, and a bundle lifecycle separating acquisition from revalidation.",
+  "type": "object",
+  "required": ["schema_version", "bundle_version", "attestation", "brief", "plan", "sources", "claims", "hypotheses", "research_frontier", "iterations", "handoffs", "revalidations", "dossier"],
+  "properties": {
+    "schema_version": {"const": "0.4.0"},
+    "bundle_version": {"type": "integer", "minimum": 1, "description": "Acquisition produces version 1. Each recorded revalidation produces the next version."},
+    "attestation": {
+      "type": "object",
+      "description": "A process label, not a verification seal. It attests what was run, never that a claim is true.",
+      "required": ["methodology", "methodology_version", "schema_version", "bundle_id", "level", "validator_status", "procedural_independence", "loop_status", "claim_profile", "validity_class", "latest_revalidation_id", "resolves_to"],
+      "properties": {
+        "methodology": {"const": "RIGOR"},
+        "methodology_version": {"type": "string"},
+        "schema_version": {"type": "string"},
+        "bundle_id": {"type": "string"},
+        "level": {"type": "integer", "enum": [3, 4, 5]},
+        "validator_status": {"enum": ["passed", "failed", "not-run"]},
+        "procedural_independence": {"enum": ["full", "limited", "pending"]},
+        "loop_status": {"enum": ["open", "exhausted-within-scope", "blocked", "paused-by-limit", "ready-for-revalidation", "escalated"]},
+        "claim_profile": {
+          "type": "object",
+          "required": ["supported", "contested", "insufficient", "other"],
+          "properties": {
+            "supported": {"type": "integer", "minimum": 0},
+            "contested": {"type": "integer", "minimum": 0},
+            "insufficient": {"type": "integer", "minimum": 0},
+            "other": {"type": "integer", "minimum": 0}
+          }
+        },
+        "validity_class": {"enum": ["static", "institutional", "consensus", "measured", "volatile"]},
+        "latest_revalidation_id": {"type": ["string", "null"]},
+        "resolves_to": {"type": "string", "description": "Locator for the bundle this attestation labels. An attestation that does not resolve is worthless."}
+      }
+    },
+    "brief": {"type": "object", "required": ["question", "outcome", "level", "level_rationale", "scope", "permissions", "expansion_budget"]},
+    "plan": {"type": "object", "required": ["plan_id", "workstreams", "expansion_decisions", "stop_conditions", "research_loop"]},
+    "sources": {"type": "array", "items": {"type": "object", "required": ["source_id", "author", "title", "source_type", "venue", "published_at", "accessed_at", "url", "status", "independence_group"]}},
+    "claims": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["claim_id", "claim_type", "statement", "citations", "support_status", "workstream_ids", "validity_class", "validity_trigger"],
+        "properties": {
+          "validity_class": {
+            "enum": ["static", "institutional", "consensus", "measured", "volatile"],
+            "description": "Decay mechanism, not calendar age. static: cannot change, only knowledge of it can. institutional: changes by a discrete watchable act. consensus: changes by accumulation of studies, replication, or retraction. measured: refreshed on a known publication cadence. volatile: live state with a declared horizon."
+          },
+          "validity_trigger": {"type": "string", "description": "The event, publication, or cadence that requires re-checking this claim."},
+          "criteria": {"type": "string", "description": "Required when claim_type is judgment."},
+          "method": {"type": "string", "description": "Required when claim_type is derived_fact."}
+        }
+      }
+    },
+    "hypotheses": {"type": "array"},
+    "research_frontier": {"type": "array"},
+    "iterations": {"type": "array"},
+    "handoffs": {"type": "array"},
+    "revalidations": {
+      "type": "array",
+      "description": "Post-acceptance maintenance. Never recorded as an acquisition iteration, which is bounded by the loop limit.",
+      "items": {
+        "type": "object",
+        "required": ["revalidation_id", "triggered_by", "date", "claims_rechecked", "claims_changed", "verdict", "produces_bundle_version"],
+        "properties": {
+          "revalidation_id": {"type": "string", "pattern": "^RV-"},
+          "triggered_by": {"type": "string"},
+          "date": {"type": "string"},
+          "claims_rechecked": {"type": "array", "items": {"type": "string"}},
+          "claims_changed": {"type": "array", "items": {"type": "string"}},
+          "verdict": {"enum": ["confirmed", "amended", "superseded", "withdrawn"]},
+          "produces_bundle_version": {"type": "integer", "minimum": 2}
+        }
+      }
+    },
+    "dossier": {
+      "type": "object",
+      "required": ["dossier_id", "title", "plan_id", "claim_ids", "conclusion", "confidence_rationale", "limitations", "revalidation", "validity_class", "validity_driver_claim_ids"],
+      "properties": {
+        "validity_class": {"enum": ["static", "institutional", "consensus", "measured", "volatile"], "description": "Derived, not asserted: the weakest class among the claims the conclusion cites."},
+        "validity_driver_claim_ids": {"type": "array", "items": {"type": "string"}, "description": "The cited claims sitting at that weakest class."}
+      }
+    }
+  }
+}
